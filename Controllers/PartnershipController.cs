@@ -23,13 +23,7 @@ namespace projectWebApplication.Controllers
         {
             _configuration = configuration;
         }
-
-        public IActionResult PartnerWithUs()
-        {
-            PartnersWithUsVM partnersWithUs = new PartnersWithUsVM(_configuration);
-            return View(partnersWithUs);
-        }
-
+ 
         public IActionResult GivingPlatform()
         {
             ProjectFinancePlatformsVM givingPlatforms = new ProjectFinancePlatformsVM(_configuration);
