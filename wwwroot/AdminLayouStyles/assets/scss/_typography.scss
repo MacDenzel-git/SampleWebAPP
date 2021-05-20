@@ -1,0 +1,170 @@
+body{
+  font-family: $content-font-family;
+  font-size: $body-font-size;
+  line-height: 1.6;
+  color: $body-color;
+  background: $body-bg;
+}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{
+  color: $headings-color;
+  font-family: $headings-font-family;
+}
+h1,.h1{
+  font-size: $h1-font-size;
+  font-weight: $h1-font-weight;
+}
+h2,.h2{
+  font-size: $h2-font-size;
+  font-weight: $h2-font-weight;
+}
+h3,.h3{
+  font-size: $h3-font-size;
+  font-weight: $h3-font-weight;
+}
+h4,.h4{
+  font-size: $h4-font-size;
+  font-weight: $h4-font-weight;
+}
+h5,.h5{
+  font-size: $h5-font-size;
+  font-weight: $h5-font-weight;
+}
+h6,.h6{
+  font-size: $h6-font-size;
+  font-weight: $h6-font-weight;
+}
+@media (max-width: 768px) {
+  .h1-md{
+    font-size: $h1-font-size;
+    font-weight: $h1-font-weight;
+  }
+  .h2-md{
+    font-size: $h2-font-size;
+    font-weight: $h2-font-weight;
+  }
+  .h3-md{
+    font-size: $h3-font-size;
+    font-weight: $h3-font-weight;
+  }
+  .h4-md{
+    font-size: $h4-font-size;
+    font-weight: $h4-font-weight;
+  }
+  .h5-md{
+    font-size: $h5-font-size;
+    font-weight: $h5-font-weight;
+  }
+  .h6-md{
+    font-size: $h6-font-size;
+    font-weight: $h6-font-weight;
+  }
+}
+/*font sizes*/
+@each $name,$font-size in $font-sizes {
+  .fs-#{$name}{
+    font-size:$font-size !important;
+  }
+}
+@media (min-width: 768px) {
+  @each $name,$font-size in $font-sizes {
+    .fs-md-#{$name}{
+      font-size:$font-size !important;
+    }
+  }
+}
+@media (min-width: 992px) {
+  @each $name,$font-size in $font-sizes {
+    .fs-lg-#{$name}{
+      font-size:$font-size !important;
+    }
+  }
+}
+/* Font weights */
+@for $i from 1 through 9{
+  .f-w-#{$i}00{
+    font-weight: #{$i*100} !important;
+  }
+}
+
+/*letter spacing*/
+.l-s-1{
+  letter-spacing: 0.1em;
+}
+.l-s-2{
+  letter-spacing: 0.15em;
+}
+
+a{
+  color: $link-color;
+  &:hover{
+    text-decoration: none;
+    color: $link-hover-color;
+  }
+  &:focus{
+    outline: none;
+  }
+  &.reverse{
+    color: $link-hover-color;
+    &:hover{
+      color: $link-color;
+    }
+  }
+}
+
+.h-color-black:hover{
+  color: #000000;
+}
+@media (min-width:768px) {
+  a{
+    @include transition(color 0.2s ease);
+  }
+}
+.active-color,.color-active{
+  color: $active-color !important;
+}
+.inactive-color,.color-inactive,.sidebar .inactive-color,.sidebar .color-inactive{
+  color: $inactive-color;
+}
+.inactive-color-two,.color-inactive-two{
+  color: $inactive-color-two;
+}
+.active-color-2,.color-active-2{
+  color: $secondary-active-color !important;
+}
+.color-active-third,.color-active-3{
+  color: $third-active-color !important;
+}
+.color-pink{
+  color: $color-pink !important;
+}
+.inactive-colored-links{
+  a{
+    color: $inactive-color;
+    &:hover{
+      color: $link-hover-color;
+    }
+  }
+}
+.caps{
+  text-transform: uppercase;
+}
+.lh-0{
+  line-height: 0;
+}
+.text-light{
+  &::-webkit-input-placeholder{
+    color: #FFFFFF;
+  }
+  &::-moz-placeholder{
+    color: #FFFFFF;
+  }
+  &:-ms-input-placeholder{
+    color: #FFFFFF;
+  }
+}
+.black-text,.color-dark{
+  color: $color-dark !important;
+}
+.color-white{
+  color: #FFFFFF;
+}

@@ -1,0 +1,73 @@
+﻿@model projectWebApplication.ViewModels.TestimonyVM
+@{
+    ViewData["Title"] = "Testimonies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-40 row-xl-55 row-xxl-100">
+            @foreach (var item in Model.Testimonies)
+            {
+                <div class="col-sm-6 col-lg-4">
+                    <!-- Thumbnail-->
+                    <div class="thumbnail thumbnail-simple">
+                        <a class="thumbnail-media" asp-controller="Testimonies" 
+                           asp-action="TestimonyDetails"
+                           asp-route-testimonyId="@item.TestimonyId">
+                            <img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)" width="370" height="266" />
+                        </a>
+                        <div class="thumbnail-body">
+                            <h3 class="thumbnail-title">@item.TestimonyHeading</h3>
+                            <h6 class="thumbnail-title">@item.TestifierName</h6>
+                            <div class="thumbnail-text DisplayLess">
+                                @if (item.TestimonyFullDescription.Length < 600)
+                                {
+                                    if (item.TestimonyFullDescription.Length >= 200)
+                                    {
+                                        <div class="thumbnail-text"> @Html.Raw(@item.TestimonyFullDescription)</div>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            <a class="thumbnail-link" asp-controller="Testimonies"
+                                               asp-action="Testimony"
+                                               asp-route-testimonyId="@item.TestimonyId"> Click picture to read full testimony.</a>
+                                        </p>
+                                    }
+                                }
+                                else if (item.TestimonyFullDescription.Length >= 600)
+                                {
+                                    <div class="thumbnail-text"> @Html.Raw(@item.TestimonyFullDescription.Substring(0, 200))</div>
+                                }
+                            </div>
+                            
+                            <a class="thumbnail-link" asp-controller="Testimonies"
+                               asp-action="TestimonyDetails"
+                               asp-route-testimonyId=" @item.TestimonyId">Read full Testimony</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link page-link-prev mdi-chevron-left novi-icon" href="#"></a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link page-link-next mdi-chevron-right novi-icon" href="#"></a>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,86 @@
+.horizontal-icons {
+  display: inline-flex;
+  text-decoration: none;
+  margin-bottom: 20px;
+  li> a{
+    padding: 10px;
+  }
+  >li> a:first-child{
+    padding-left: 0;
+  }
+}
+.adonis-svg-library{
+  height: 0;
+  width: 0;
+}
+.adonis-icon{
+  line-height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  svg{
+    fill: currentColor;
+    height: auto;
+  }
+  &.icon-arrow{
+    @include transform(translateY(-1px));
+  }
+  &.icon-ssm svg{
+    width: 8px;
+    max-height: 8px;
+  }
+  @each $icon-size in $icon-sizes {
+    &.icon-#{map-get($icon-size, "size")} svg {
+      width: #{map-get($icon-size, "width")};
+      max-height: #{map-get($icon-size, "height")};
+    }
+  }
+}
+
+.icon-dot-nav-horizontal{
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  margin: 5px 12px 2px 12px !important;
+  &::before,&::after{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: inherit;
+    content: "";
+    position: absolute;
+    left: -200%;
+    border-radius: 50%;
+  }
+  &::after{
+    left: 200%;
+  }
+  &.white{
+    background: #ffffff;
+  }
+}
+.icon-dot-nav-vertical{
+  width: 4px;
+  height: 4px;
+  background: #a27bf9;
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  margin: 10px;
+  &::before,&::after{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: inherit;
+    content: "";
+    position: absolute;
+    top: -200%;
+    border-radius: 50%;
+  }
+  &::after{
+    top: 200%;
+  }
+}

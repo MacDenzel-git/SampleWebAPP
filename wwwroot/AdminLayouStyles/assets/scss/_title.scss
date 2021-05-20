@@ -1,0 +1,8 @@
+.title-box{
+  margin-bottom: $title-box-margin-bottom;
+  display: flex;
+  flex-direction: column;
+  .sub-title{
+    line-height: 1;
+  }
+}

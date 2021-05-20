@@ -1,0 +1,26 @@
+@mixin shadow-sm() {
+  @if($theme == "light"){
+    @include box-shadow(2px 2px 16px 0 rgba(168,179,211,0.8));
+  }
+}
+@mixin shadow-md() {
+  @if($theme == "light"){
+    @include box-shadow(5px 18px 18px 0 rgba(168,179,211,0.38));
+  }
+}
+@mixin shadow-lg() {
+  @if($theme == "light"){
+    @include box-shadow(13px 26px 25px 0 rgba(165,149,198,0.28));
+  }
+}
+@mixin shadow-dot-nav() {
+  @if($theme == "light"){
+    @include box-shadow(3px 1px 13px 5px rgba(168,179,211,0.8));
+  }
+}
+
+@mixin shadow-sm-2() {
+  @if($theme == "light"){
+    @include box-shadow(3px 10px 10px 0 rgba(168,179,211,0.25));
+  }
+}

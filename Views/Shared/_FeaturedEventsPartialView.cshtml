@@ -1,0 +1,77 @@
+﻿@model projectWebApplication.ViewModels.EventsVM
+ 
+    @if (@Model.Events != null)
+    {
+        @foreach (var item in Model.PaginatedEvents.Where(x => x.IsFeatured && x.IsPublished && x.IsAnEvent).OrderBy(x => x.DateOfEvent))
+        {
+            <div class="col-md-6">
+                <!-- Post-->
+                <div class="post post-shadow">
+                    <a class="post-media" asp-controller="NewsAndEvents"
+                       asp-action="EventDetails"
+                       asp-route-eventId="@item.EventId">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)" alt="" width="370" height="257" />
+                        <div class="post-hover-btn">View</div>
+                    </a>
+                    <div class="post-content">
+                        <div class="post-tags group-5 text-small">
+                            <h6 class="font-weight-bold">
+                                @item.Heading
+                                @if (item.IsOnEventBrite)
+                                {
+                                    if (item.DateOfEvent < DateTime.UtcNow.AddHours(2)) //Event already happened don't show event brite link
+                                    {
+                                        <a class="btn btn-sm" style="font-size: 9px;padding: 4px !important;" href="@item.EventBriteLink">Register on EventBrite</a>
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                            </h6>
+                        </div>
+
+                        @if (item.Article.Length >= 200)
+                        {
+                            if (item.Heading.Length >= 70)
+                            {
+
+
+                                <p>
+                                    @Html.Raw(item.Article.Substring(0, 120))
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    @Html.Raw(item.Article.Substring(0, 200))
+                                </p>
+
+
+                            }
+
+
+                        }
+                        else
+                        {
+                            <p class="post-title text-divider">
+                                @Html.Raw(item.Article)
+                            </p>
+
+                        }
+
+                        @if (item.IsOnEventBrite)
+                        {
+                            <div class="post-date mt-0">@String.Format("{0:f}", @item.DateOfEvent)</div>
+                        }
+                        else
+                        {
+                            <div class="post-date">@String.Format("{0:f}", @item.DateOfEvent)</div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        }
+    }

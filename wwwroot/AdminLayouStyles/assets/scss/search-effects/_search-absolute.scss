@@ -1,0 +1,31 @@
+.search-style-absolute{
+  position: relative;
+  width: 40px;
+  overflow: visible;
+  .form-control{
+    position: absolute;
+    z-index: 5;
+    height: 45px;
+    width: 45px;
+    padding-right: 28px;
+    padding-left: 15px;
+    right: 0px;
+    @include border-radius(30px);
+    @include transition(0.3s ease-in-out);
+  }
+  .search-icon{
+    position: relative;
+    z-index: 10;
+    @include border-radius(50%);
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+    top: 2px;
+    right: 2px;
+  }
+  &:hover,&.active{
+    .form-control{
+      width: 250px;
+    }
+  }
+}

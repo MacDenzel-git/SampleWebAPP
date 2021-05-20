@@ -1,0 +1,70 @@
+﻿@model projectWebApplication.ViewModels.EventManagementVM 
+@{
+    ViewData["Title"] = Model.EventSingleObject.EventTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-40 justify-content-xxl-between">
+            <div class="col-md-12">
+                <div class="blog-post">
+                    <div class="blog-post-item">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(Model.EventSingleObject.ImgBytes)" alt="" width="769" height="431" />
+                        <h3 class="h3-big">@Model.EventSingleObject.Heading</h3>
+                        <div class="post-meta list list-inline-divided text-small">
+                            @if (Model.EventSingleObject.IsAnEvent)
+                            {
+                                <div class="list-item">
+                                    <div class="post-tags"><a class="post-tag" href="#">project Events</a></div>
+                                </div>
+                                <div class="list-item"><a class="post-date" href="#">Date @Model.EventSingleObject.DateOfEvent</a></div>
+
+                            }
+                            else
+                            {
+                                <div class="list-item">
+                                    <div class="post-tags"><a class="post-tag" href="#">project News</a></div>
+                                </div>
+                                <div class="list-item"><a class="post-date" href="#">Posted on @Model.EventSingleObject.CreatedDate</a></div>
+
+                            }
+                            @*<div class="list-item"><a class="post-comments" href="#">0 comments</a></div>*@
+                        </div>
+                        <p>
+                            @Html.Raw(@Model.EventSingleObject.Article)  
+                        </p>
+                    </div>
+
+                    @*<div class="blog-post-item">
+                        <h3>Leave a Comment</h3>
+                        <form class="rd-form rd-mailform" data-form-output="form-post" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php">
+                            <div class="row row-15 row-gutters-15">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="name" placeholder="Your Name*" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" name="email" placeholder="Your E-mail*" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="comment" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-output snackbar snackbar-primary" id="form-post"></div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

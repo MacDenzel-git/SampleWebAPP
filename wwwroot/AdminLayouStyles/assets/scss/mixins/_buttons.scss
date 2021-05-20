@@ -1,0 +1,161 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+  color: color-yiq($background);
+  @include gradient-bg($background);
+  border-color: $border;
+  @include box-shadow($btn-box-shadow);
+
+  @include hover {
+    color: color-yiq($hover-background);
+    @include gradient-bg($hover-background);
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $btn-box-shadow, 0 0 0 $input-btn-focus-width rgba($border, .5);
+    } @else {
+      box-shadow: 0 0 0 $input-btn-focus-width rgba($border, .5);
+    }
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    background-color: $background;
+    border-color: $border;
+  }
+
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    @if $enable-gradients {
+      background-image: none; // Remove the gradient for the pressed/active state
+    }
+    border-color: $active-border;
+
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $btn-active-box-shadow, 0 0 0 $input-btn-focus-width rgba($border, .5);
+    } @else {
+      box-shadow: 0 0 0 $input-btn-focus-width rgba($border, .5);
+    }
+  }
+}
+
+@mixin button-outline-variant($color, $color-hover: #fff) {
+  color: $color;
+  background-color: transparent;
+  background-image: none;
+  border-color: $color;
+
+  @include hover {
+    color: $color-hover;
+    background-color: $color;
+    border-color: $color;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $input-btn-focus-width rgba($color, .5);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $color;
+    background-color: transparent;
+  }
+
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: $color-hover;
+    background-color: $color;
+    border-color: $color;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    box-shadow: 0 0 0 $input-btn-focus-width rgba($color, .5);
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  @include border-radius($border-radius);
+}
+
+/* button bg */
+@mixin adonis-btn-bg($bg){
+  @if type-of($bg) == color {
+    background-color: $bg;
+  }@else{
+    @if ($bg == "gradient-adonis") {
+      @include gradient-adonis();
+    }
+    @if ($bg == "gradient-adonis-alt") {
+      @include gradient-adonis-alt();
+    }
+  }
+}
+@mixin btn-before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  @include transition(opacity 0.3s);
+}
+
+@mixin  adonis-btn($bg,$bg-hover,$color,$color-hover,$border,$border-hover,$shadow:"",$shadow-hover:""){
+  border: none;
+  position: relative;
+  cursor: pointer;
+  color: $color;
+  background-color: transparent;
+  @include transition(all 0.3s);
+  a,p,span{
+    color: $color;
+  }
+  &::before{
+    @include box-shadow(0 0 0 1px $border inset);
+    @include adonis-btn-bg($bg);
+    @include btn-before;
+    opacity: 1;
+    @if($shadow!= ""){
+      @include box-shadow($shadow);
+    }
+  }
+  &::after{
+    @include adonis-btn-bg($bg-hover);
+    @include btn-before;
+  }
+  &:hover,&:not([disabled]):not(.disabled):active,&:focus{
+    @include box-shadow(0 0 0 1px $border inset);
+    color: $color-hover !important;
+    background-color: transparent;
+    @if($shadow-hover!= ""){
+      @include box-shadow($shadow-hover);
+    }
+    a,p,span{
+      color: $color-hover!important;
+    }
+    &::before{
+      opacity: 0;
+    }
+    &::after{
+      opacity: 1;
+    }
+  }
+}

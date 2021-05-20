@@ -1,0 +1,12 @@
+@mixin animation-timing-function($value){
+  -webkit-animation-timing-function: $value;
+  animation-timing-function: $value;
+}
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

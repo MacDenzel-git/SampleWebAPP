@@ -1,0 +1,94 @@
+.owl-theme-adonis {
+  // Styling Next and Prev buttons
+  .owl-nav {
+    margin-top: 10px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    [class*='owl-'] {
+      color: $owl-nav-color;
+      font-size: $owl-nav-font-size;
+      margin: $owl-nav-margin;
+      padding: $owl-nav-padding;
+      background: $owl-nav-background;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 3px;
+      &:hover {
+        background: $owl-nav-background-hover;
+        color:$owl-nav-color-hover;
+        text-decoration: none;
+      }
+    }
+    .disabled {
+      opacity: $owl-nav-disabled-opacity;
+      cursor: default;
+    }
+  }
+  // Styling dots
+  .owl-nav.disabled + .owl-dots {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .owl-stage-outer {
+    margin-bottom: $owl-stage-outer-margin;
+  }
+  &.stage-margin-0{
+    .owl-stage-outer {
+      margin-bottom: 0;
+    }
+  }
+  .owl-dots {
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    .owl-dot {
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+      span {
+        width: $owl-dot-width;
+        height: $owl-dot-height;
+        margin: $owl-dot-margin;
+        background: $owl-dot-background;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity 200ms ease;
+        border-radius: 30px;
+        @include transition(all 0.3s);
+      }
+      &.active,
+      &:hover {
+        span {
+          @include gradient-adonis();
+        }
+      }
+      &.active{
+        span {
+        width: 38px;
+          @if($theme == "light"){
+            -webkit-box-shadow: 4px 4px 20px 5px rgba(168,179,211,.67);
+            box-shadow: 4px 4px 20px 5px rgba(168,179,211,.67);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 992px) {
+  .owl-theme-adonis {
+    .owl-nav {
+      [class*='owl-'] {
+        @include transition(all 0.3s);
+      }
+    }
+  }
+}
+
+/* dark */
+.dark-theme{
+  .owl-theme-adonis .owl-dots .owl-dot.active span{
+    @include box-shadow(none);
+  }
+
+}

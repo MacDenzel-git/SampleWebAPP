@@ -1,0 +1,287 @@
+
+$h1-font-weight: 700;
+$h2-font-weight: 700;
+$h3-font-weight: 600;
+$h4-font-weight: 600;
+$h5-font-weight: 500;
+$h6-font-weight: 500;
+
+/* Typography */
+$font-size-base:              0.8125rem !default; // 14px . Assumes the browser default, typically `16px`
+$font-size-lg:                ($font-size-base * 1.25) !default;
+$font-size-sm:                ($font-size-base * .875) !default;
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-base:            $font-weight-normal !default;
+$line-height-base:            1.5 !default;
+
+// extra font-sizes
+$font-sizes:(
+        '1' : $font-size-base * .92 , // 12px
+        '2' : $font-size-base * 1, // 13px
+        '3' : $font-size-base * 1.08, // 14px
+        '4' : $font-size-base * 1.153, // 15px
+        '5' : $font-size-base * 1.233, // 16px
+        '6' : $font-size-base * 1.385, // 18px
+        '7' : $font-size-base * 1.539, // 20px
+        '8' : $font-size-base * 1.7, // 22px
+        '9' : $font-size-base * 2, // 26px
+        '10' : $font-size-base * 2.5, // 32.5px
+        '11' : $font-size-base * 3, // 39px
+        '12' : $font-size-base * 3.69, // 48px
+        '13' : $font-size-base * 4.615, // 60px
+);
+
+// body
+$title-font-family : 'Poppins', sans-serif;
+$content-font-family : 'Poppins', sans-serif;
+$body-font-size :13px;
+
+// headings
+$headings-font-family: 'Poppins', sans-serif;
+
+$h1-font-size:                $font-size-base * 2.77 !default; // 36
+$h2-font-size:                $font-size-base * 2.3 !default; // 30
+$h3-font-size:                $font-size-base * 1.692 !default; // 22
+$h4-font-size:                $font-size-base * 1.385 !default; // 18
+$h5-font-size:                $font-size-base * 1.23 !default; // 16
+$h6-font-size:                $font-size-base * 1.077 !default; // 14
+
+$h1-font-weight: 700;
+$h2-font-weight: 700;
+$h3-font-weight: 600;
+$h4-font-weight: 600;
+$h5-font-weight: 500;
+$h6-font-weight: 500;
+
+/* Components */
+$tab-style-1-padding: 1rem 2rem;
+
+$line-height-lg:              1.5 !default;
+$line-height-sm:              1.5 !default;
+
+$border-width:                1px !default;
+
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
+$caret-width:                 .3em !default;
+
+$transition-base:             .2s !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+
+// master container space/padding
+$main_padding_lg: 51.5px;
+$main_padding_md: 15px;
+
+
+// title box
+$title-box-margin-bottom: 16px;
+$title-box-sub-title-font-size: 14px;
+$title-box-title-font-weight: 700;
+$title-box-sub-title-font-weight: 600;
+$title-box-sub-title-color-light: #a1a1a1;
+
+
+/* z-index */
+
+$adonis-player-horizontal-zindex: 900;
+$site-header-zindex: 1000;
+$off-canvas-overlay-zindex : 1100;
+$top-search-zindex: 1200;
+$off-canvas-zindex: 1200;
+$adonis-player-playlist-zindex: 1200;
+$sticky-player-zindex : 1200;
+$site-preloader-zindex: 2000;
+$section-preloader-zindex: 800;
+$tab-preloader-zindex: 800;
+$scroll-zindex: 1300;
+
+// icons
+$icon-sizes:(
+        (
+                "size" : ssm,
+                "width" : 8px,
+                "height" : 8px
+        ),
+        (
+                "size" : sm,
+                "width" : 12px,
+                "height" : 14px
+        ),
+        (
+                "size" : 1x,
+                "width" : 16px,
+                "height" : 18px
+        ),
+        (
+                "size" : 1-1x,
+                "width" : 17px,
+                "height" : 18px
+        ),
+        (
+                "size" : 2x,
+                "width" : 18px,
+                "height" : 20px
+        ),
+        (
+                "size" : 3x,
+                "width" : 20px,
+                "height" : 22px
+        ),
+        (
+                "size" : 4x,
+                "width" : 25px,
+                "height" : 27px
+        ),
+        (
+                "size" : 5x,
+                "width" : 30px,
+                "height" : 32px
+        ),
+        (
+                "size" : 6x,
+                "width" : 35px,
+                "height" : 38px
+        ),
+        (
+                "size" : 7x,
+                "width" : 40px,
+                "height" : 45px
+        ),
+        (
+                "size" : 8x,
+                "width" : 50px,
+                "height" : 55px
+        ),
+        (
+                "size" : 9x,
+                "width" : 60px,
+                "height" : 65px
+        ),
+        (
+                "size" : 10x,
+                "width" : 70px,
+                "height" : 75px
+        ),
+);
+
+/** header **/
+
+// navigation menu
+$main-nav-top-level-padding : 0.3rem 1.1rem;
+$main-nav-font-size : $font-size-base * 1.153; // 15
+$main-nav-font-weight : 400;
+
+$main-nav-dropdown-padding : 0.3rem 0;
+$main-nav-dropdown-font-size : $font-size-base * 1; // 13
+$main-nav-dropdown-font-weight : 400;
+$main-nav-dropdown-letter-spacing: 0.5px;
+
+$main-nav-megamenu-padding : 0.3rem 0;
+$main-nav-megamenu-font-size : $font-size-base * 1; // 13
+$main-nav-megamenu-font-weight : $main-nav-dropdown-font-weight;
+$main-nav-megamenu-letter-spacing: $main-nav-dropdown-letter-spacing;
+
+$header-dropdown-width: 16.125rem;
+$header-dropdown-menu-font-size: 0.8125rem;
+$header-dropdown-item-padding: 0.3rem 1.5rem;
+$header-dropdown-top-bottom-padding: 1.4rem 0;
+
+$off-canvas-menu-font-size : 2.3rem;
+$off-canvas-menu-font-weight : 700;
+$off-canvas-menu-padding: 0.5rem 1rem 0.5rem 5vmin;
+
+
+// body dropdowns
+$dropdown-item-padding: 0.3rem 1.5rem;
+
+// footer
+$footer-widget-title-font-size:16px;
+$footer-widget-title-margin:10px;
+$footer-widget-title-padding-bottom: 20px;
+$footer-widget-title-font-size:16px;
+
+/*Player */
+$dropdown-menu-font-size: 0.8125rem;
+
+/* Sidebar & side menu */
+$sidebar-font-size:13px;
+$tag-cloud-radius: 3px;
+
+/*Music image box */
+$music-img-box-img-margin:13px;
+$music-img-box-title-margin:5px;
+$img-box-radius-sm:3px;
+$img-box-radius-md:5px;
+$img-box-radius-lg:10px;
+
+
+/* Sidebar */
+$sidebar-widget-title-down-padding: 17px;
+$sidebar-widget-title-font-size : 1.125rem;
+$sidebar-widget-list-margin-bottom: 6px;
+$sidebar-widget-margin-bottom-lg : 45px;
+$sidebar-widget-margin-bottom: 2rem;
+
+/* Form */
+$input-font-size: 0.875rem;
+$input-padding-y :12px;
+$input-padding-x:12px;
+$input-line-height: 1.5;
+$input-border-width: 1px;
+$input-height: 45px;
+$label-margin: 0 0 0.6rem 0;
+
+/* Buttons */
+$btn-default-font-size : 13px;
+$btn-xl-font-size : 16px;
+$btn-xl-padding : 1rem 3.5rem;
+$btn-lg-font-size : 13px;
+$btn-lg-padding : .75rem 1.5rem;
+$btn-md-font-size : 12px;
+$btn-md-padding : .2rem 1rem;
+$btn-sm-font-size : 0.8125rem;
+$btn-sm-padding : .2rem .5rem;
+$btn-sm-wide-padding : .365rem 1.28rem;
+$btn-md-wide-padding : .75rem 2.5rem;
+$btn-lg-wide-padding : .75rem 3.5rem;
+$btn-xl-wide-padding : .75rem 4.5rem;
+
+
+/* btn outline */
+$btn-outline-font-weight : 600;
+
+
+/*** Store ***/
+/*single*/
+$product-single-padding: .2rem 1rem;
+$album-poster-size : 350px;
+
+$progress-bar-height: 3px ;
+
+
+/* Modal */
+$modal-max-width: 1030px;
+
+/* Owl carousel */
+$owl-stage-outer-margin: 35px;
+
+//nav
+$owl-nav-font-size: 		14px !default;
+$owl-nav-rounded: 			3px !default;
+$owl-nav-margin: 			5px !default;
+$owl-nav-padding: 			8px 7px !default;
+
+$owl-nav-disabled-opacity: 	0.5 !default;
+
+//dots
+$owl-dot-width:				8px !default;
+$owl-dot-height:			8px !default;
+$owl-dot-rounded:			30px !default;
+$owl-dot-margin: 			5px 7px !default;

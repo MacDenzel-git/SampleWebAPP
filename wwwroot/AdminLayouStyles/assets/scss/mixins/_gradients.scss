@@ -1,0 +1,86 @@
+// Gradients
+
+@mixin gradient-bg($color) {
+  @if $enable-gradients {
+    background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x;
+  } @else {
+    background-color: $color;
+  }
+}
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-x($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+  background-repeat: repeat-x;
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-y($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+  background-repeat: repeat-x;
+}
+
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-image: linear-gradient($deg, $start-color, $end-color);
+  background-repeat: repeat-x;
+}
+@mixin gradient-x-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-y-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-radial($inner-color: #555, $outer-color: #333) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-striped($color: rgba(255,255,255,.15), $angle: 45deg) {
+  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}
+
+
+@mixin gradient-adonis {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#91a5f4+0,b08cf9+86 */
+  background: #91a5f4; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #91a5f4 0%, #b08cf9 86%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #91a5f4 0%,#b08cf9 86%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #91a5f4 0%,#b08cf9 86%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91a5f4', endColorstr='#b08cf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+@mixin gradient-adonis-alt {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#91a5f4+0,b08cf9+86 */
+  background: #7A8BF4; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #91a5f4 0%, #b08cf9 86%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #91a5f4 0%,#b08cf9 86%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #7b8ff4 0%,#b08cf9 86%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91a5f4', endColorstr='#b08cf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+@mixin gradient-two-state-adonis {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#91a5f4+0,b08cf9+50,ebf4f5+50,ebf4f5+100 */
+  background: #91a5f4; /* Old browsers */
+  background: -moz-linear-gradient(top, #91a5f4 0%, #b08cf9 50%, #ebf4f5 50%, #ebf4f5 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #91a5f4 0%,#b08cf9 50%,#ebf4f5 50%,#ebf4f5 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #91a5f4 0%,#b08cf9 50%,#ebf4f5 50%,#ebf4f5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91a5f4', endColorstr='#ebf4f5',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradient-bg-transition {
+  position: relative;
+  z-index: 1;
+  &:before {
+    @include gradient-adonis();
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}

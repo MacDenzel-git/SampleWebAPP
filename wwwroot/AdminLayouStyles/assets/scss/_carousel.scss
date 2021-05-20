@@ -1,0 +1,73 @@
+.adonis-browse-tabs{
+  .scrollbar{
+    height: 20px;
+    background: #ddd;
+    .draggable-scroll{
+      cursor: all-scroll;
+      cursor: -webkit-grab;
+      width: 10%;
+      background: #555555;
+      height: 100%;
+    }
+  }
+}
+.owl-carousel {
+  .owl-item{
+    .item{
+      max-width: 100%;
+      .preloader{
+        .position-absolute{
+          top: calc(50% - 30px);
+        }
+      }
+      &.adonis-lazy-item{
+        .music-img-box{
+          opacity: 0;
+          @include transition(opacity 0.3s ease-in);
+        }
+      }
+    }
+  }
+}
+
+.adonis-carousel{
+  &.nav-middle{
+    .owl-carousel{
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    .owl-prev,.owl-next{
+      position: absolute;
+      left: 0;
+      top: 35%;
+    }
+    .owl-next{
+      left: auto;
+      right: 0;
+    }
+  }
+  &.padding-top{
+    .owl-item .item{
+      padding-top: 15px;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .adonis-carousel{
+    &.gutter-xl-60{
+      .owl-item{
+        .item{
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+}
+
+.adonis-carousel-swiper{
+  overflow: hidden;
+}
+[class^="gutter-"]{
+  width: auto;
+}

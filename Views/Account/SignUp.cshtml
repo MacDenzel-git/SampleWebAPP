@@ -1,0 +1,102 @@
+﻿@model projectWebApplication.DTOs.Authentication.UserSignUpResource
+
+
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Admin-Login</title>
+
+    <!-- Favicons -->
+    @*<link href="~/AdminLayouStyles/img/favicon.png" rel="icon">
+        <link href="~/AdminLayouStyles/img/apple-touch-icon.png" rel="apple-touch-icon">*@
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/AdminLayouStyles/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet">
+
+    <!--external css-->
+    @*<link href="~/AdminLayouStyles/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" />*@
+    <link href="~/AdminLayouStyles/vendor/font-awesome-4.7/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/AdminLayouStyles/css/style.css" rel="stylesheet">
+    <link href="~/AdminLayouStyles/css/style-responsive.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <div id="login-page">
+        <div class="container">
+            @if (Model.OutputHandler.IsErrorOccured)
+            {
+                <p class="p-2" style="float: left;color: #f9f7ff;font-weight: bold;background-color: #d80a0a;border-radius: 6px;">@Model.OutputHandler.Message</p>
+            }
+        <form class="form-login mt-5"  asp-action="SignUp">
+            <p class="pt-3 centered font-weight-bold">Enter your Details to create login credentials</p>
+            <h2 class="form-login-heading font-weight-bold p-3" style="font-size: 13px;">
+                Sign up
+            </h2>
+            <div class="login-wrap">
+                 
+                    <input type="text" asp-for="Email" class="form-control mb-3" placeholder="Email" autofocus>
+                    <input asp-for="FirstName" class="form-control mb-3" placeholder="Firstname" autofocus />
+                    <input asp-for="LastName" class="form-control mb-3" placeholder="Lastname" autofocus />
+                    <input asp-for="Password" class="form-control mb-3" placeholder="Password" autofocus />
+                  
+                    <div>
+                        <ul class="list-group pb-2">
+                            <li>Password must be at least 8 characters</li>
+                            <li>Password must have a capital letter</li>
+                            <li>Password must have a number</li>
+                            <li>Password must have a special character/symbol</li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        @*<input type="submit" value="Submit" class="btn btn-dark text-center" />*@
+                        <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-user"></i> Submit</button>
+                    </div>
+            </div>
+        </form>
+            <div class="row">
+
+                <div class="col-8">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    @*<script src="~/AdminLayouStyles/lib/jquery/jquery.min.js"></script>
+        <script src="~/AdminLayouStyles/lib/bootstrap/js/bootstrap.min.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="~/AdminLayouStyles/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("/images/AdminBanner/10.jpeg", {
+            speed: 500
+        });
+    </script>
+</body>
+
+</html>

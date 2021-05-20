@@ -1,0 +1,34 @@
+.img-box-horizontal {
+  .des {
+    z-index: 500;
+  }
+  .hover-state a,.pointer{
+    z-index: 600;
+    position: relative;
+  }
+}
+#top-search{
+  z-index: $top-search-zindex;
+}
+.sidebar{
+  position: relative;
+}
+.z-index-100{
+  z-index: 100;
+  position: relative;
+}
+.site-header {
+  z-index: $site-header-zindex;
+  .absolute-header {
+    z-index: $site-header-zindex;
+  }
+}
+.btn{
+  z-index: 1;
+}
+.album-cover-bg{
+  z-index: -1;
+}
+.ps__rail-x {
+  z-index: 900;
+}

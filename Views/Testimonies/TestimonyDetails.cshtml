@@ -1,0 +1,58 @@
+﻿@model projectWebApplication.ViewModels.TestimonyVM
+@{
+    ViewData["Title"] = "Testimony";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-40 justify-content-xxl-between">
+            <div class="col-md-12">
+                <div class="blog-post">
+                    <div class="blog-post-item">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(Model.Testimony.ImgBytes)" alt="" width="769" height="431" />
+                        @*<img src="../images/project/testimonies/testimony1.jpg" alt="" width="769" height="431" />*@
+                        <h3 class="h3-big">@Model.Testimony.TestimonyHeading</h3>
+                        <div class="post-meta list list-inline-divided text-small">
+                            <div class="list-item">
+                                <div class="post-tags"><a class="post-tag" asp-controller="Testimonies" asp-action="Index">Testimonies</a></div>
+                            </div>
+                            <div class="list-item"><a class="post-date" href="#">@Model.Testimony.TestimonyDate</a></div>
+                        </div>
+                       
+                            @Html.Raw(Model.Testimony.TestimonyFullDescription)
+                       
+                    </div>
+                </div>
+
+                <div class="blog-post-item">
+                    <h3>Do you have a testimony - Testify</h3>
+                    <form class="rd-form rd-mailform" data-form-output="form-post" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php">
+                        <div class="row row-15 row-gutters-15">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="name" placeholder="Your Name*" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="email" name="email" placeholder="Your E-mail*" />
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="comment" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-output snackbar snackbar-primary" id="form-post"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

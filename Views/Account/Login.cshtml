@@ -1,0 +1,117 @@
+﻿@model projectWebApplication.DTOs.Authentication.UserLoginResource
+
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Admin-Login</title>
+
+    <!-- Favicons -->
+    @*<link href="~/AdminLayouStyles/img/favicon.png" rel="icon">
+        <link href="~/AdminLayouStyles/img/apple-touch-icon.png" rel="apple-touch-icon">*@
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/AdminLayouStyles/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet">
+
+    <!--external css-->
+    @*<link href="~/AdminLayouStyles/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" />*@
+    <link href="~/AdminLayouStyles/vendor/font-awesome-4.7/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/AdminLayouStyles/css/style.css" rel="stylesheet">
+    <link href="~/AdminLayouStyles/css/style-responsive.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <div id="login-page">
+        <div class="container">
+            @if (Model.OutputHandler.IsErrorOccured)
+            {
+                <p class="p-2" style="float: left;color: #f9f7ff;font-weight: bold;background-color: #d80a0a;border-radius: 6px;">@Model.OutputHandler.Message</p>
+            }
+            <form class="form-login" method="post" asp-action="Login">
+                <h6 class="pt-3 centered font-weight-bold">Administrator Portal</h6>
+                <h2 class="form-login-heading font-weight-bold p-3" style="font-size: 13px;">
+                    Sign In
+                </h2>
+                <div class="login-wrap">
+                    <input type="text" asp-for="@Model.Email" class="form-control" placeholder="User ID" autofocus>
+                    <br>
+                    <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Password">
+                    <label class="checkbox" style="margin: 10px;">
+                        <!--<input--> @*asp-for="Input.RememberMe"*@ <!--type="checkbox" value="remember-me"> Remember me-->
+                        @*<span class="pull-right">
+                        <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+                    </span>*@
+                    </label>
+                    <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> Login</button>
+                    <h6 class="p-2 text-black-50"><a class="text-dark" asp-action="Signup"><i class="fa fa-user-plus pr-1 text-right"></i>Sign up</a></h6>
+                    <p class="centered pt-2"> <img alt="logo" src="/Images/project/logo.jpg" width="150" height="100"> </p>
+
+                </div>
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Forgot Password ?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Enter your e-mail address below to reset your password.</p>
+                                <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                <button class="btn btn-theme" type="button">Submit</button>
+                            </div>
+                            <h4><a asp-action="Signup">Create Credentials</a></h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal -->
+            </form>
+            <div class="row">
+
+                <div class="col-8">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    @*<script src="~/AdminLayouStyles/lib/jquery/jquery.min.js"></script>
+        <script src="~/AdminLayouStyles/lib/bootstrap/js/bootstrap.min.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="~/AdminLayouStyles/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("/images/AdminBanner/10.jpeg", {
+            speed: 500
+        });
+    </script>
+</body>
+
+</html>

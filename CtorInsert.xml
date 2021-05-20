@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ctorInsert</Title>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal   Editable="false">
+          <ID>classname</ID>
+          <ToolTip>Class name</ToolTip>
+          <Function>ClassName()</Function>
+          <Default>ClassNamePlaceholder</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="">
+        <![CDATA[ IConfiguration _configuration;
+        public $classname$ (IConfiguration configuration):base(configuration)
+        {
+            _configuration = configuration;
+        }
+        public string BaseUrl
+        {
+            get
+            {
+                return _configuration["EndpointURL"];
+            }
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

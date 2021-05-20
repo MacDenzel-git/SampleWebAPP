@@ -1,0 +1,94 @@
+/* more margins and paddings*/
+$extra-spacings:(
+        's-0' : 0,
+        's-1' : 10,
+        's-1.5' : 15,
+        's-2' : 20,
+        's-2.5' : 25,
+        's-3' : 30,
+        's-4' : 40,
+        's-5' : 50,
+        's-6' : 60,
+      /*  's-8' : 80,
+        's-10' : 100,*/
+);
+
+@mixin spacing-function($class-prefix,$property){
+  @each $name,$spacing in $extra-spacings {
+    .#{$class-prefix}-#{$spacing}{
+      #{$property}:#{$spacing}px !important;
+    }
+  }
+  @media (min-width: 768px) {
+    @each $name,$spacing in $extra-spacings {
+      .#{$class-prefix}-md-#{$spacing}{
+        #{$property}:#{$spacing}px !important;;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    @each $name,$spacing in $extra-spacings {
+      .#{$class-prefix}-lg-#{$spacing}{
+        #{$property}:#{$spacing}px !important;;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    @each $name,$spacing in $extra-spacings {
+      .#{$class-prefix}-xl-#{$spacing}{
+        #{$property}:#{$spacing}px !important;;
+      }
+    }
+  }
+}
+
+$extra-percent-spacings:(1,2,3,4,5,7,8,10,12,15,18,20,25);
+@mixin padding-percent-function($class-prefix,$property){
+  @each $spacing in $extra-percent-spacings {
+    $unit : unquote('%');
+    .#{$class-prefix}-#{$spacing}{
+      #{$property}: $spacing + $unit;
+    }
+  }
+}
+
+@mixin gutter-function($value){
+  .gutter-#{$value}{
+    margin-left:-#{$value/2}px;
+    margin-right:-#{$value/2}px;
+    [class^="col-"],.owl-item .item,.swiper-slide{
+      padding-left:#{$value/2}px;
+      padding-right:#{$value/2}px;
+    }
+  }
+  @media (min-width: 768px) {
+    .gutter-md-#{$value}{
+      margin-left:-#{$value/2}px;
+      margin-right:-#{$value/2}px;
+      [class^="col-"],.owl-item .item,.swiper-slide{
+        padding-left:#{$value/2}px;
+        padding-right:#{$value/2}px;
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .gutter-lg-#{$value}{
+      margin-left:-#{$value/2}px;
+      margin-right:-#{$value/2}px;
+      [class^="col-"],.owl-item .item,.swiper-slide{
+        padding-left:#{$value/2}px;
+        padding-right:#{$value/2}px;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .gutter-xl-#{$value}{
+      margin-left:-#{$value/2}px;
+      margin-right:-#{$value/2}px;
+      [class^="col-"],.owl-item .item,.swiper-slide{
+        padding-left:#{$value/2}px;
+        padding-right:#{$value/2}px;
+      }
+    }
+  }
+}

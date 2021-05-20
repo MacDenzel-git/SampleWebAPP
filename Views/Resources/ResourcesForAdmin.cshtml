@@ -1,0 +1,122 @@
+﻿@model projectWebApplication.ViewModels.ResourceVM
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-11 ml-5">
+        <div class="outer-div">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">All Resources </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row text-right">
+                        <div class="col-md-12 text-right">
+                            <a class="btn btn-raised btn-success" asp-action="AddResource" asp-controller="Resources">Add Resource</a>
+                            @if (Model.OutputHandler.IsErrorOccured)
+                            {
+                            <p style="float: left;color: red;font-weight: bold;">@Model.OutputHandler.Message</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div>
+
+                                <div class="body">
+                                    <div class="table-responsive">
+                                        <table id="example" class="display table-bordered">
+                                            <thead style="font-size: 11px;">
+                                                <tr>
+                                                    <th>
+                                                        Title
+                                                    </th>
+                                                    <th>
+                                                        Preacher
+                                                    </th>
+
+
+                                                    <th>
+                                                        Featured
+                                                    </th>
+                                                    <th>
+                                                        Published
+                                                    </th>
+                                                    <th>
+                                                        StorageSize
+                                                    </th>
+
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody style="font-size: 12px;">
+                                                @foreach (var item in Model.Resources)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        @item.ResourceName
+                                                    </td>
+
+                                                    <td>
+                                                        @item.Preacher
+                                                    </td>
+
+                                                    <td>
+                                                        
+                                                        @if (@item.IsFeatured)
+                                                            {
+                                                        <p>Featured</p>
+                                                            }
+                                                            else
+                                                            {
+                                                        <p>Not Featured</p>
+                                                            }
+
+                                                    </td>
+                                                    <td>
+                                                        @if (item.IsPublished)
+                                                            {
+                                                        <p>Published</p>
+                                                            }
+                                                            else
+                                                            {
+                                                        <p>UnPublished</p>
+                                                            }
+
+                                                    </td>
+                                                    <td>
+                                                        @item.StorageSize
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.ActionLink("Edit", "EditResource", new { resourceId = item.ResourceId}) |
+                                                        <a onclick="ConfirmFunction(@item.ResourceId)">Delete</a>
+
+                                                    </td>
+
+                                                </tr>
+                                                }
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-raised btn-success btn-sm" asp-action="ResourcesForAdmin" asp-controller="Resources">Refresh</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>
+

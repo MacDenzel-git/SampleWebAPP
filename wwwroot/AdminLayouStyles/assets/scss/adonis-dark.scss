@@ -1,0 +1,87 @@
+/*------------------------------------*
+
+    Adonis Music System Template
+    Site:   Iconic Themes
+    Author: https://themeforest.net/user/iconic_themes
+
+\*------------------------------------*/
+
+
+/*
+TABLE OF CONTENT
+
+THEME AND VARIABLES
+Theme...................Theme color, value could be either "dark" or "light"
+Mixins..................Include required mixings
+Variables...............Main variable file excluding color settings
+Variables-light.........Color variable settings
+
+GENERAL SETTINGS
+Layout..................layout styles
+General.................Basic settings
+Typography..............Text color & sizes
+
+ELEMENTS & COMPONENTS
+Header..................Header styles
+Nav.....................All about navigations
+Preloader...............Site preloader, tab preloader and section preloader
+Footer..................Footer styles
+Sidebar.................Sidebar styles
+Title...................Titles settings
+Form....................Form elements
+Button..................Button sizes and color and few more extra stuff
+Single-album............Single album, single playlist and single product album template
+Store...................Store templates
+News....................News/blog styles
+Player..................jPlayer reset and custom Player styles
+Music_image_box ........Image box styles
+Carousel................Carousel
+OWL Theme...............OWL carousel theme
+Icon................I...Icons sizes and settings
+Z-index..................Few essential zindex settings
+Scroll..................JS based scroll settings
+Search..................Search window and styles
+Modal...................Modal settings
+Shadow-gradient.........Gradients styles
+
+TEMP STYLES
+Temp-styles.............Few temporary styles
+*/
+
+
+/* Theme and variables */
+$theme : 'dark'; // Theme color, value could be either "dark" or "light"
+@import "_mixins"; // Include required mixings
+@import "_variables"; // Main variable file excluding color settings
+@import "_variables-dark"; // Color variable settings
+
+/* General settings */
+@import "_layout"; // layout styles
+@import "_general"; // basic settings
+@import "_typography"; // text color & sizes
+
+/* Elements & components*/
+@import "_header"; // Header styles
+@import "_nav"; // All about navigations
+@import "_preloader"; // Site preloader, tab preloader and section preloader
+@import "_footer"; // Footer styles
+@import "_sidebar"; // Sidebar styles
+@import "_title"; // Titles
+@import "_form"; // Form elements
+@import "_button"; // Button sizes and color and few more extra stuff
+@import "_single-album"; // Single album, single playlist and single product album template
+@import "_store"; // Store templates
+@import "_news"; // News/blog styles
+@import "_player"; // jPlayer reset and custom Player styles
+@import "_music_image_box"; //image box styles
+@import "_carousel"; // Carousel
+@import "_theme.owl"; // OWL carousel theme
+@import "_icon"; // icons sizes and settings
+@import "_zindex"; // Few essential zindex settings
+@import "_scroll"; // js based scroll settings
+@import "_search"; // Search window and styles
+@import "_modal"; // modal settings
+@import "_shadow-gradient"; // gradients styles
+
+/* Other */
+@import "_temp-styles"; // few temporary styles

@@ -1,0 +1,121 @@
+﻿@model projectWebApplication.ViewModels.ResourceVM
+@using projectWebApplication.General
+@{
+    ViewData["Title"] = Model.PageSetup.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<!-- Blog grid-->
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-30 row-xl-60 row-xxl-100">
+            <div class="col-md-10 col-xl-10">
+                <div class="row row-30 row-xl-60 row-xxl-100">
+
+                    @if (Model.Resources != null)
+                    {
+
+                        @foreach (var item in Model.PaginatedResources)
+                        {
+                            <div class="col-md-4">
+                                <!-- Post-->
+                                <div class="post post-shadow">
+                                    <a class="post-media" asp-action="ResourceDetails" asp-route-resourceId="@item.ResourceId">
+                                        @*<img src="/@item.ImageUrl" alt="" width="370" height="257" />*@
+                                        <img src="data:image;base64,@System.Convert.ToBase64String(item.Artwork)" width="80" height="80" />
+                                        <div class="post-hover-btn">View</div>
+                                    </a>
+                                    <div class="post-content">
+                                        @*<div class="post-tags group-5 text-small"><a class="post-tag" asp-action="PastorAubrey" asp-controller="Team">Pastor Aubrey Sermons</a></div>*@
+                                        <h4 class="post-title text-divider" style="font-size: 12px;"><a asp-action="ResourceDetails" asp-route-resourceId="@item.ResourceId">@item.ResourceName</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                    else
+                    {
+                        @if (Model.OutputHandler != null)
+                        {
+
+                            @if (Model.OutputHandler.IsErrorOccured)
+                            {
+                                @if (Model.OutputHandler.IsErrorKnown)
+                                {
+                                    <p>@Model.OutputHandler.Message</p>
+                                }
+                                else
+                                {
+                                    <p>There are currently no sermons for this category, choose another category</p>
+                                }
+                            }
+                        }
+
+                    }
+
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-xl-2">
+                <h3 class="text-primary">Categories</h3>
+                <ul class="list list-divided list-divided-sm big">
+                    @*//check if sermon before showing this list*@
+                    @foreach (var item in Model.ResourceCategories)
+                    {
+
+                        <li class="list-item"><a class="link link-arrow" asp-action="ResourcesByCategory" asp-route-name="@item.CategoryName" asp-route-id="@item.ResourceCategoryId">@item.CategoryName</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+
+        @{
+            var prevDisabled = !Model.PaginatedResources.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.PaginatedResources.HasNextPage ? "disabled" : "";
+        }
+        <div class="row">
+            <div class="col-6">
+                <a asp-action="Resources"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-page="@(Model.PaginatedResources.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-resourceType="@Model.PageSetup.PageTitle"
+                   class="btn btn-default @prevDisabled">
+                    Previous
+                </a>
+                <a asp-action="Resources"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-page="@(Model.PaginatedResources.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   asp-route-resourceType="@Model.PageSetup.PageTitle"
+                   class="btn btn-default mt-0 @nextDisabled">
+                    Next
+                </a>
+            </div>
+            <div class="col-6"></div>
+        </div>
+
+        @*<ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link page-link-prev mdi-chevron-left novi-icon" href="#"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link page-link-next mdi-chevron-right novi-icon" href="#"></a>
+                </li>
+            </ul>*@
+    </div>
+</section>

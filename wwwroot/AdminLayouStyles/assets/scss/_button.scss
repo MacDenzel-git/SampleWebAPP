@@ -1,0 +1,224 @@
+.btn,button{
+  font-size: $btn-default-font-size;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  @include transition(all 0.3s ease);
+  &:focus{
+    outline: none;
+    box-shadow: none;
+  }
+  &::before,&::after{
+    @include border-radius(3px);
+  }
+}
+
+.rounded-btn{
+  @include border-radius(50px);
+  &::before,&::after{
+    @include border-radius(50px);
+  }
+}
+.btn.rounded-circle{
+  @include border-radius(50%);
+  &::before,&::after{
+    @include border-radius(50%);
+  }
+}
+.active-border{
+  border-color: $active-color !important;
+}
+/* btn sizes */
+
+.btn-sm{
+  padding: $btn-sm-padding;
+  font-size: $btn-sm-font-size;
+  &::before,&::after{
+    @include border-radius(3px);
+  }
+}
+
+.btn-md{
+  padding: $btn-md-padding;
+  font-size: $btn-md-font-size;
+}
+.btn-lg{
+  padding: $btn-lg-padding;
+  font-size: $btn-lg-font-size;
+}
+.btn-xl{
+  padding: $btn-xl-padding;
+  font-size: $btn-xl-font-size;
+}
+.btn-sm-wide{
+  font-size: $btn-sm-font-size;
+  padding: .365rem 1.28rem;
+}
+.btn-md-wide{
+  padding: $btn-md-wide-padding;
+  font-size: $btn-md-font-size;
+}
+.btn-lg-wide{
+  padding: $btn-lg-wide-padding;
+  font-size: $btn-lg-font-size;
+}
+.btn-xl-wide{
+  padding: $btn-xl-wide-padding;
+  font-size: $btn-xl-font-size;
+}
+.btn-80-60{
+  width: 80px;
+  height: 60px;
+}
+.btn-120-60{
+  width: 120px;
+  height: 60px;
+}
+.btn-90-90{
+  width: 90px;
+  height: 90px;
+}
+.btn-45-45{
+  width: 45px;
+  height: 45px;
+}
+.btn-40-40{
+  width: 40px;
+  height: 40px;
+}
+.btn-50-50{
+  width: 50px;
+  height: 50px;
+}
+.btn-60-60{
+  width: 60px;
+  height: 60px;
+}
+.btn-light{
+  @include adonis-btn(#ebf4f5,"gradient-adonis",#a1a1a1,#ffffff,none,none);
+}
+.btn-primary{
+  @include adonis-btn($primary-btn-bg, $primary-btn-bg-hover, $primary-btn-color, $primary-btn-color-hover, none, none);
+}
+.btn-secondary{
+  @include adonis-btn($secondary-btn-bg, $secondary-btn-bg-hover, $secondary-btn-color, $secondary-btn-color-hover, none, none);
+}
+.btn-outline {
+  @include adonis-btn($btn-outline-bg, $btn-outline-bg-hover, $btn-outline-color, $btn-outline-hover-color, $btn-outline-border-color, $btn-outline-hover-border-color);
+}
+.btn-transparent{
+  @include adonis-btn($btn-transparent-bg, $btn-transparent-bg-hover, $btn-transparent-color, $btn-transparent-hover-color, none, none);
+}
+.btn-blank{
+  background: transparent;
+}
+.btn-transparent{
+  .dark{
+    color: $color-dark;
+  }
+  span{
+    color: $inactive-color;
+  }
+  &:hover,&:not([disabled]):not(.disabled):active,&:focus{
+    span {
+      color: $primary-btn-color-hover;
+    }
+  }
+}
+.btn-group-sm>.btn{
+  padding: .16rem .5rem;
+  @include border-radius(0.15rem);
+  font-size: 0.75rem;
+}
+.btn-outline-secondary.focus, .btn-outline-secondary:focus,.btn-outline-secondary:not([disabled]):not(.disabled).active, .btn-outline-secondary:not([disabled]):not(.disabled):active, .show>.btn-outline-secondary.dropdown-toggle{
+  @include gradient-adonis();
+  border-color: transparent;
+  box-shadow: none;
+  color: #fff;
+}
+
+.btn-outline-secondary{
+  color: $btn-secondary-color;
+  border-color: $btn-secondary-border-color;
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.lt-side-btn{
+  text-align: left;
+  @include shadow-sm-2;
+  &.gradient-adonis-hover:hover{
+    color: #ffffff;
+    @include shadow-md;
+  }
+}
+.input-group{
+  .form-control{
+    border: 1px solid #ced4da;
+  }
+  .input-group-text {
+    padding: .375rem .75rem;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    height: 100%;
+    align-items: center;
+    display: inline-flex;
+    &.right-edge{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-left: 0;
+    }
+  }
+}
+.round-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  &::before,&::after{
+    @include border-radius(50%);
+  }
+  &.gradient-adonis-hover:hover{
+    color: #FFFFFF;
+    p{
+      color: #FFFFFF !important;
+    }
+  }
+}
+.btn-close-round{
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  @include border-radius(50%);
+  background: #ebebeb;
+  text-align: center;
+  border: none;
+}
+/* color */
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+@include keyframes(adonisShadowOut){
+  from {
+    @include box-shadow( 0 0 0 0 rgba(166,140,248,1));
+  }
+  to {
+    @include box-shadow(0 0 1rem .5rem rgba(166,140,248,0));
+  }
+}
+
+.shadow-out{
+  -webkit-animation: adonisShadowOut .5s linear;
+  animation: adonisShadowOut .5s linear;
+}
+.btn-search{
+  background: none;
+  border: none;
+  padding: 0;
+}

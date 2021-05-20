@@ -1,0 +1,39 @@
+@if($theme == "light"){
+  @media (min-width:768px) {
+    .shadow-sm{
+      @include transition(all 0.5s);
+      @include shadow-sm();
+    }
+    .shadow-sm-hover{
+      @include transition(all 0.5s);
+      &:hover{
+        @include shadow-sm();
+      }
+    }
+    .shadow-md{
+      @include transition(all 0.5s);
+      @include shadow-md();
+    }
+    .shadow-md-hover{
+      @include transition(all 0.5s);
+      &:hover{
+        @include shadow-md();
+      }
+    }
+    .shadow-lg{
+      @include transition(all 0.5s);
+      @include shadow-lg();
+    }
+    .shadow-md-hover{
+      &:hover{
+        @include shadow-lg();
+      }
+    }
+    .box-shadow-dark-sm{
+      @include box-shadow(2px 2px 18px 0 rgba(0,0,0,0.3) !important);
+    }
+  }
+  .player-play-btn-alt-shadow{
+    @include box-shadow(3px 8px 20px 0px rgba(168, 179, 211, 0.63));
+  }
+}

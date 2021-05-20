@@ -1,0 +1,62 @@
+.sidebar{
+  @include link_color($sidebar-a-color,$sidebar-a-hover-color);
+}
+.tagcloud {
+  a{
+    padding: 5px 15px;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    @include border-radius($tag-cloud-radius);
+    @include adonis-btn($tag-cloud-bg,"gradient-adonis",$tag-cloud-color,$tag-cloud-hover-color,none,none);
+    &::before,&::after{
+      @include border-radius($tag-cloud-radius);
+    }
+  }
+}
+.sidebar {
+  .adonis-list{
+    padding-left: 0;
+    margin-left: 0;
+    li{
+      margin-bottom: $sidebar-widget-list-margin-bottom;
+      padding: 0;
+      list-style: none;
+      ul{
+        padding-left: 20px;
+      }
+    }
+  }
+  .widget {
+    margin-bottom: $sidebar-widget-margin-bottom;
+    .widget-title {
+      font-size:$sidebar-widget-title-font-size;
+      padding-bottom: $sidebar-widget-title-down-padding ;
+    }
+    &.mb-lg{
+      margin-bottom: $sidebar-widget-margin-bottom-lg;
+    }
+  }
+}
+.sidebar,.side-menu{
+  font-size: $sidebar-font-size;
+}
+
+/* follower-box */
+.follower-box{
+  .artist{
+    font-size: 0.8125rem;
+    margin-bottom: 0.2rem;
+  }
+  margin-bottom: 1.3rem;
+}
+@media (min-width: 768px){
+  .tagcloud {
+    a{
+      @include transition(color 0.3s ease-out) ;
+      &::before{
+        @include transition(opacity 0.3s ease-out) ;
+      }
+    }
+  }
+}
+

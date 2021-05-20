@@ -1,0 +1,114 @@
+﻿@model projectWebApplication.ViewModels.EventManagementVM
+
+@{
+    ViewData["Title"] = "ManageEvents";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-11 ml-5">
+        <div class="outer-div">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">All Events </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row text-right">
+                        <div class="col-md-12 text-right">
+                            <a class="btn btn-raised btn-success" asp-action="AddEvent" asp-controller="Event">Add Event</a>
+                            @if (Model.OutputHandler.IsErrorOccured)
+                            {
+                            <p style="float: left;color: red;font-weight: bold;">@Model.OutputHandler.Message</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div>
+
+                                <div class="body">
+                                    <div class="table-responsive">
+                                        <table id="example" class="display table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    kd
+                                                    <th>
+                                                        Heading
+                                                    </th>
+
+                                                    <th>
+                                                        Start Date
+                                                    </th>
+                                                    <th>
+                                                        End Date
+                                                    </th>
+
+                                                    <th>
+                                                        Is On Event Brite?
+                                                    </th>
+
+                                                    <th>
+                                                        Publish
+                                                    </th>
+                                                    <th>
+                                                        Time Active?
+                                                    </th>
+                                                    <th>
+                                                        StorageSize
+                                                    </th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.EventDTO)
+                                                {
+                                                <tr>
+
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Heading)
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DateOfEvent)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.EventEndDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IsOnEventBrite)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IsPublished)
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IsTimeActive)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.StorageSize)
+                                                    </td>
+                                                    <td>
+                                                        @Html.ActionLink("Edit", "UpdateEvent", new { eventId = item.EventId }) |
+                                                        <a onclick="ConfirmFunction(@item.EventId)">Delete</a>
+                                                    </td>
+
+
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-raised btn-success btn-sm" asp-action="ManageEvents" asp-controller="NewsAndEvents">Refresh</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>

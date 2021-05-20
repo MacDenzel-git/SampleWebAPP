@@ -1,0 +1,108 @@
+.adonis-star-rating{
+  margin-bottom: 0.7rem;
+  .star-full{
+  background: url("../images/star.svg") no-repeat 0 0;
+    width: 5rem;
+    height: 1rem;
+    display: inline-flex;
+    vertical-align: middle;
+    .star-active{
+      background: url("../images/star-active.svg") no-repeat 0 0;
+      display: block;
+      height: 100%;
+      background-size: 5rem;
+      @include translate(-1px,0);
+    }
+  }
+}
+
+.adonis-cart-table {
+  td,th {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+  .product-image {
+    width: auto;
+    max-width: 150px;
+  }
+  .product-description{
+      width: 70%;
+  }
+  .unit-price{
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: none;
+  }
+  .product-buttons{
+    text-align: right;
+    vertical-align: middle;
+  }
+  thead{
+    th {
+      border-bottom: none;
+      border-top: none;
+    }
+  }
+ }
+
+.cart-total{
+  tbody {
+    tr:first-child{
+      td,th{
+        padding-top: 1.2rem;
+      }
+    }
+    tr:last-child{
+      td,th{
+        padding-bottom: 1.2rem;
+      }
+    }
+  }
+  td,th{
+    padding: 0.75rem 0;
+  }
+  background: #f6f7fb;
+  .title{
+    border-bottom: 1px solid #e1e1e1;
+  }
+  thead th {
+    border-bottom-width: 1px;
+    border-top: none;
+  }
+  td.product-name,td.product-total{
+    border-top: none;
+    padding: 0.45rem 0;
+  }
+}
+#payment{
+  label{
+    font-weight: bold;
+    color: $color-dark;
+    img{
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+.borderless td, .borderless th {
+  border: none;
+  padding-left: 0;
+   }
+.product-tabs{
+  a{
+    padding: $product-single-padding;
+    color: $product-single-tab-menu-color;
+    border: 1px solid transparent;
+    @include border-radius(50px);
+    &:hover,&.active{
+      color: $product-single-tab-menu-active-border-color;
+    }
+    &.active{
+      border-color: $product-single-tab-menu-active-border-color;
+      color: $product-single-tab-menu-active-color;
+      background: none;
+    }
+  }
+}

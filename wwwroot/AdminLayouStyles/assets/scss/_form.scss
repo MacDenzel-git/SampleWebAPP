@@ -1,0 +1,196 @@
+input{
+  &:focus{
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@include placeholder-color('.color-variable',currentColor);
+
+
+// Bootstrap Form reset
+input[type=checkbox], input[type=radio] {
+  vertical-align: middle;
+}
+label {
+  margin: $label-margin;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  &:focus {
+    border-color: $input-border-color-focus;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+select.form-control {
+  &:not([size]):not([multiple]) {
+    height: $input-height;
+  }
+  &:focus::-ms-value {
+    color: $input-color;
+    background-color: $input-bg;
+  }
+}
+.adonis-checkbox,.adonis-radio {
+  .label {
+    position: relative;
+    &::before {
+      content: '';
+      border: 2px solid #e1e1e1;
+      background-color: transparent;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      margin-right: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      z-index: 4;
+    }
+    &:after {
+      content: '';
+      left: 5px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      z-index: 5;
+    }
+  }
+  input[type="checkbox"], input[type="radio"] {
+    display: none;
+  }
+}
+.adonis-checkbox {
+  .label {
+    &::before {
+      @include border-radius(2px);
+    }
+    &:after {
+      border: 1px solid white;
+      border-top: none;
+      border-right: none;
+      @include rotate(-45deg);
+    }
+  }
+  input[type="checkbox"]:checked + label .label:before {
+    background-color: $active-color;
+    border: none;
+  }
+}
+.adonis-radio {
+  .label {
+    &::before, &::after{
+      @include border-radius(50%);
+    }
+  }
+  input[type="radio"]:checked {
+    + label .label:before {
+      background-color: $active-color;
+      border: none;
+    }
+    + label .label:after {
+      background: $active-color;
+      border: 3px solid white;
+      width: 16px;
+      height: 16px;
+      top: 2px;
+      left: 2px;
+    }
+  }
+}
+
+/*<div class="form-group-g-style">
+    <label class="label-control">
+      <span class="label-text">&nbsp; Find and listen to your favorite music</span>
+    </label>
+    <input type="email" name="email" class="form-control" />
+</div>*/
+
+.form-group-g-style {
+  padding-bottom: 16px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .form-control {
+    border: none;
+    background: transparent;
+    position: relative;
+    bottom: -14px;
+    padding: 4px 0;
+    margin-top: 4px;
+  }
+  .label-control {
+    display: block;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    pointer-events: none;
+    height: 100%;
+    white-space: nowrap;
+    &.no-border::before {
+      display: none;
+    }
+  }
+  .label-control::before,
+  .label-control::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  .label-control::before {
+    border-bottom: 1px solid #B9C1CA;
+    transition: transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+  }
+
+  .label-control::after {
+    border-bottom: 2px solid $active-color;
+    @include transform(translate3d(-100%, 0, 0));
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+  }
+
+  .label-control .label-text {
+    @include transform(translate3d(0, 20px, 0) scale(1));
+    @include transform-origin(left top);
+    @include transition(transform 0.3s);
+    position: absolute;
+  }
+  &.active .label-control::after {
+    @include transform(translate3d(0%, 0, 0));
+  }
+  &.active .label-control .label-text {
+    opacity: 1;
+    @include transform(scale(0.9));
+  }
+  .input-field label:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #B9C1CA;
+    @include transition(transform 0.3s);
+  }
+}
+.round-input{
+  @include border-radius(50px);
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}

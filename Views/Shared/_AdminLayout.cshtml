@@ -1,0 +1,373 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+
+//var currentUser = Context.Session.GetString("name");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+    <!-- Title Page-->
+    <title>Admin</title>
+    <!-- Fontfaces CSS-->
+
+    <script src="https://use.fontawesome.com/b70d845252.js"></script>
+
+    <link href="~/AdminLayouStyles/css/font-face.css" rel="stylesheet" media="all" />
+    <link href="~/AdminLayouStyles/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
+    <!-- Bootstra  CSS-->
+    <link href="~/AdminLayouStyles/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all" />
+    <!-- Vendor C SS-->
+    <link href="~/AdminLayouStyles/vendor/animsition/animsition.min.css" rel="stylesheet" media="all" />
+    <link href="~/AdminLayouStyles/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all" />
+    <link href="~/AdminLayouStyles/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/AdminLayouStyles/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all" />
+    <link href="~/AdminLayouStyles/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/AdminLayouStyles/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/AdminLayouStyles/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all" />
+    <link href="~/AdminLayouStyles/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all" />
+    <!-- Main CSS-->
+    <link href="~/AdminLayouStyles/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AdminLayouStyles/fontawesome-free-5.13.0-web/fontawesome-free-5.13.0-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/AdminLayouStyles/css/theme.css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous" />
+    <!-- CSS ends -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    <!-- CSS Files -->
+    <link href="~/AdminLayouStyles/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+
+    <link href="~/AdminLayouStyles/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    @*<button  class="">
+            <i asp-action="Create" asp-controller="Sermons" class="zmdi zmdi-plus"></i>Add Sermon
+        </button>*@
+
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/colreorder/1.5.2/css/colReorder.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+    <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <style>
+        .Displayless {
+            max-width: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        a.buttons-collection {
+            margin-left: 1em;
+        }
+
+        table.dataTable thead .sorting::after {
+            opacity: 0.2;
+            content: none !important;
+        }
+
+        table.dataTable thead .sorting_asc::after {
+            content: none !important;
+        }
+    </style>
+</head>
+<body class=" ">
+
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar2">
+        <div class="logo ">
+            @*--    <img src="~/images/logo1.png" alt="" />*@
+        </div>
+        <div class="menu-sidebar2__content js-scrollbar1">
+            <div class="account2">
+
+                @*<img src="~/images/logo.png" alt="John Doe" />*@
+                <p style="font-size: 14px;font-weight: bold;"> Administrator Dashboard</p>
+                @*<h4 class="m-0 name">@currentUser</h4>*@
+                <a asp-action="Login" asp-controller="Accounts"><i class="fa fa-sign-out"></i>Sign out</a>
+            </div>
+            <nav class="navbar-sidebar2">
+                <ul class="list-unstyled navbar__list">
+                    <li class="active has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fa fa-cogs"></i>Dashboard
+                            <span class="arrow">
+                                <i class="fa fa-angle-down"></i>
+                            </span>
+                        </a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a asp-action="TeamMembersForAdmin" asp-controller="Team">
+                                    <i class="fa fa-users"></i>Manage Team Members
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-action="ResourcesForAdmin" asp-controller="Resources">
+                                    <i class="fa fa-volume-up"></i>Manage Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="MinistryArms" asp-action="ManageMinistryArms">
+                                    <i class="fa fa-archive"></i>Manage Ministry Arms
+                                </a>
+                            </li>
+                            @*<li>
+                                <a asp-action="Index" asp-controller="SermonSeries">
+                                    <i class="fa fa-film"></i>Sermon Series
+                                </a>
+                            </li>*@
+                            <li>
+                                <a asp-controller="NewsAndEvents" asp-action="ManageEvents">
+                                    <i class="fa fa-archive"></i>Manage Events
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Quotes" asp-action="ManageQoutes">
+                                    <i class="fa fa-archive"></i>Manage Quotes
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Testimonies" asp-action="ManageTestimonies">
+                                    <i class="fa fa-archive"></i>Manage Testimonies
+                                </a>
+                            </li>
+                             
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
+    <!-- PAGE CONTAINER-->
+    <div class="page-container2">
+        <!-- HEADER DESKTOP-->
+
+
+
+        <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
+            <div class="col-lg-3" style="padding-left: 0px;margin-left: -76px; font-weight: bold !important;">
+                ADMIN
+            </div>
+            <div class="menu-sidebar2__content js-scrollbar2">
+                <div class="account2">
+                    <div class="image img-cir img-120">
+                        @*<img src="images/icon/avatar-big-01.jpg" alt="John Doe" />*@
+                    </div>
+                    @*<h4 class="name">@currentUser</h4>*@
+                    <a href="#">Sign out</a>
+                </div>
+                <nav class="navbar-sidebar2">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fa fa-cogs"></i>Dashboard
+                                <span class="arrow">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a asp-action="TeamMembersForAdmin" asp-controller="Team">
+                                        <i class="fa fa-users"></i>Manage Team Members
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-action="ResourcesForAdmin" asp-controller="Resources">
+                                        <i class="fa fa-volume-up"></i>Manage Resources
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="MinistryArms" asp-action="ManageMinistryArms">
+                                        <i class="fa fa-archive"></i>Manage Ministry Arms
+                                    </a>
+                                </li>
+                                @*<li>
+                <a asp-action="Index" asp-controller="SermonSeries">
+                    <i class="fa fa-film"></i>Sermon Series
+                </a>
+            </li>*@
+                                <li>
+                                    <a asp-controller="NewsAndEvents" asp-action="ManageEvents">
+                                        <i class="fa fa-archive"></i>Manage Events
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Quotes" asp-action="ManageQoutes">
+                                        <i class="fa fa-archive"></i>Manage Quotes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Testimonies" asp-action="ManageTestimonies">
+                                        <i class="fa fa-archive"></i>Manage Testimonies
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END HEADER DESKTOP-->
+        <!-- STATISTIC-->
+        <div class="col-lg-12 ">
+            <div class="card m-2">
+                <div class="card-body text-center font-weight-bold" style="font-size: 21px; text-transform:uppercase;">
+                    <div class="row">
+                        <div class="col-lg-3 text-left">
+                            <a asp-action="Index" asp-controller="Dashboard"><i class="fa fa-home" style="color: black;"></i></a>
+                        </div>
+                        <div class="col-lg-6 text-center" style="font-weight: bold !important; color: #000000;">
+                            ADMINISTRATOR PORTAL
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="section__content section__content--p30" style="z-index:1001;">
+                                <div class="container-fluid">
+                                    <div class="header-wrap2">
+                                        <div class="logo d-block d-lg-none">
+                                            <a href="#">
+                                                Admin
+                                            </a>
+                                        </div>
+                                        <div class="header-button2">
+
+
+                                            <div class="header-button-item mr-0 js-sidebar-btn">
+                                                <i class="fa fa-bars" style="color: black;"></i>
+                                            </div>
+                                            <div class="setting-menu js-right-sidebar d-none d-lg-block">
+                                                <div class="account-dropdown__body">
+                                                    <div class="account-dropdown__item">
+                                                        <a asp-action="GetSermons" asp-controller="Sermon" class="font-weight-bold">
+                                                            <i class="fa fa-home" style="color: black;"></i>Main System
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        @RenderBody()
+
+
+        <footer class="page-footer font small">
+            <div class="footer-copyright text-center py-3">
+
+                <a href="#">Admin</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        @*<script src="https://code.jquery.com/jquery-3.3.1.js"></script>*@
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script href="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+
+        <!-- Jquery JS-->
+        @*<script src="~/vendor/jquery-3.2.1.min.js"></script>*@
+        <!-- Bootstrap JS-->
+        <script src="~/AdminLayouStyles/vendor/bootstrap-4.1/popper.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+        <!-- Vendor   /AdminLayouStyles JS       -->
+        <script src="~/AdminLayouStyles/vendor/slick/slick.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/wow/wow.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/animsition/animsition.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/counter-up/jquery.waypoints.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/counter-up/jquery.counterup.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/circle-progress/circle-progress.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="~/AdminLayouStyles/vendor/chartjs/Chart.bundle.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/select2/select2.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/vector-map/jquery.vmap.js"></script>
+        <script src="~/AdminLayouStyles/vendor/vector-map/jquery.vmap.min.js"></script>
+        <script src="~/AdminLayouStyles/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+        <script src="~/AdminLayouStyles/vendor/vector-map/jquery.vmap.world.js"></script>
+        <!-- Main JS-->
+        <script src="~/AdminLayouStyles/js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+        @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+        @*<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
+        <script type="text/Javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script type="text/Javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+        <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script type="text/Javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+                crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+        function ConfirmFunction(x) {
+            swal({
+                title: "Comfirmation",
+                text: "Are you sure you want to Delete?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, Delete",
+                cancelButtonText: "No, Cancel",
+                closeOnConfirmation: false,
+
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var id = x; //if you want to pass an Id parameter
+                        window.location.href = '@Url.Action("Delete")/' + id;
+                        swal("Deleted", "successfully")
+                    }
+                }
+
+            )
+        };
+
+        </script>
+        <script>
+            CKEDITOR.replace("FullDescription");
+        </script>
+         
+    </div>
+</body>
+</html>
+<!-- end document-->

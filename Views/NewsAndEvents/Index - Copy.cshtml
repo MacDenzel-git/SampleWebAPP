@@ -1,0 +1,217 @@
+﻿@model projectWebApplication.ViewModels.EventsVM
+@{
+    ViewData["Title"] = "News and Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-40 justify-content-xxl-between">
+            <div class="col-9">
+                <div class="row row-40 justify-content-xxl-between">
+                    <div class="col-12">
+                        <div class="row row-40 justify-content-xxl-between">
+
+                            @if (@Model.Events != null)
+                            {
+                                @foreach (var item in Model.Events.Where(x => x.IsFeatured && x.IsAnEvent).OrderBy(x => x.DateOfEvent))
+                                {
+                                    <div class="col-6">
+                                        <!-- Post-->
+                                        <div class="post post-classic">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="post-embed">
+                                                        <a class="post-media post-img"
+                                                           asp-controller="NewsAndEvents"
+                                                           asp-action="EventDetails"
+                                                           asp-route-eventId="@item.EventId">
+
+                                                            <img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)"
+                                                                 alt="" width="500" style="height: 200px !important;" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="post-content">
+                                                        <h4 class="h3-big post-title">
+                                                            <a asp-controller="NewsAndEvents"
+                                                               asp-action="EventDetials"
+                                                               asp-route-eventId="@item.EventId">@item.Heading</a>
+                                                        </h4>
+                                                        <div class="post-meta list list-inline-divided">
+                                                            <div class="list-item">
+                                                                <div class="post-tags"><a class="post-tag" href="#">News</a></div>
+                                                            </div>
+                                                            <div class="list-item"><a class="post-date" href="#">Posted on @item.CreatedDate</a></div>
+
+                                                        </div>
+                                                        @if (item.Article.Length >= 112)
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article.Substring(0, 112))</div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article)</div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row row-5 align-items-center">
+                    <div class="col-md-5" data-animate='{"class":"fadeIn"}'>
+                        <h2>NEWS</h2>
+                    </div>
+                    <div class="col-md-7" data-animate='{"class":"fadeIn","delay":".2s"}'>
+                        <p class="big">Browse through our news</p>
+                    </div>
+                </div>
+                <div class="row row-40 justify-content-xxl-between">
+                    <div class="col-12">
+                        <div class="row row-40 justify-content-xxl-between">
+                            @if (@Model.Events != null)
+                            {
+                                @foreach (var item in Model.Events.OrderBy(x => x.EventId))
+                                {
+
+                                    <div class="col-md-4">
+                                        <!-- Post-->
+                                        <div class="post post-classic">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="post-embed">
+                                                        <a class="post-media post-img"
+                                                           asp-controller="NewsAndEvents"
+                                                           asp-action="EventDetails"
+                                                           asp-route-eventId="@item.EventId">
+
+                                                            <img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)"
+                                                                 alt="" width="500" style="height: 200px !important;" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="post-content">
+                                                        <h6 class="font-weight-bold post-title">
+                                                            <a asp-controller="NewsAndEvents"
+                                                               asp-action="EventDetials"
+                                                               asp-route-eventId="@item.EventId">@item.Heading</a>
+                                                        </h6>
+                                                        <div class="post-meta list list-inline-divided">
+                                                            <div class="list-item"><a class="post-date" href="#">Posted on @item.CreatedDate</a></div>
+
+                                                        </div>
+                                                        @if (item.Article.Length >= 112)
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article.Substring(0, 112))</div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article)</div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row row-40 justify-content-xxl-between">
+            <div class="col-12">
+                <div class="row row-5 align-items-center">
+                    <div class="col-md-5" data-animate='{"class":"fadeIn"}'>
+                        <h2>NEWS</h2>
+                    </div>
+                    <div class="col-md-7" data-animate='{"class":"fadeIn","delay":".2s"}'>
+                        <p class="big">Browse through our news</p>
+                    </div>
+                </div>
+                <div class="row row-40 justify-content-xxl-between">
+                    <div class="col-12">
+                        <div class="row row-40 justify-content-xxl-between">
+                            @if (@Model.Events != null)
+                            {
+                                @foreach (var item in Model.Events.OrderBy(x => x.EventId))
+                                {
+
+                                    <div class="col-md-4">
+                                        <!-- Post-->
+                                        <div class="post post-classic">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="post-embed">
+                                                        <a class="post-media post-img"
+                                                           asp-controller="NewsAndEvents"
+                                                           asp-action="EventDetails"
+                                                           asp-route-eventId="@item.EventId">
+
+                                                            <img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)"
+                                                                 alt="" width="500" style="height: 200px !important;" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="post-content">
+                                                        <h6 class="font-weight-bold post-title">
+                                                            <a asp-controller="NewsAndEvents"
+                                                               asp-action="EventDetials"
+                                                               asp-route-eventId="@item.EventId">@item.Heading</a>
+                                                        </h6>
+                                                        <div class="post-meta list list-inline-divided">
+                                                            <div class="list-item"><a class="post-date" href="#">Posted on @item.CreatedDate</a></div>
+
+                                                        </div>
+                                                        @if (item.Article.Length >= 112)
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article.Substring(0, 112))</div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="post-text"> @Html.Raw(item.Article)</div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

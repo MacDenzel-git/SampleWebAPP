@@ -1,0 +1,224 @@
+// white and gray colors
+$white:    #fff!default;
+$gray-100: #f8f9fa!default;
+$gray-200: #e9ecef!default;
+$gray-300: #dee2e6!default;
+$gray-400: #ced4da!default;
+$gray-500: #adb5bd!default;
+$gray-600: #868e96!default;
+$gray-700: #7d7d7d!default;
+$gray-800: #343a40!default;
+$gray-900: #252525!default;
+$black:    #000!default;
+$color-dark: $gray-900!default;
+$color-pink : #ed145b!default;
+
+// theme color
+$theme-color-primary : #b08cf9!default;
+$theme-color-secondary : #91a5f4!default;
+$third-active-color: #a49ac3!default;
+
+// Body
+$body-bg:                   $white!default;
+
+// general
+$link-color:                $gray-900!default;
+$link-hover-color:          $theme-color-primary!default;
+$hr-color : $gray-200!default;
+$active-color: $theme-color-primary!default;
+$secondary-active-color: $theme-color-secondary!default;
+
+$preloader-overlay-bg : rgba(255,255,255,1);
+$offcanvas-overlay-bg : rgba(255,255,255,0.5)!default;
+$preloader-shadow-color : $gray-200!default;
+
+$body-color: $gray-700!default;
+$inactive-color: $gray-500!default;
+$inactive-color-two: $black!default;
+$headings-color: $gray-900!default;
+
+/** header **/
+$header-a-color: #252525;
+$header-a-hover-color: $theme-color-primary!default;
+
+/* Components */
+$border-color:                $gray-200!default;
+$component-active-color:      $white!default;
+
+// navigation menu
+$main-nav-top-level-text-color: $black!default;
+$main-nav-top-level-text-hover-color: $theme-color-secondary!default;
+
+$main-nav-dropdown-text-color : $black!default;
+$main-nav-dropdown-text-hover-color : $theme-color-secondary!default;
+$main-nav-dropdown-border-bottom : 1px solid #eeeeee;
+
+$main-nav-megamenu-text-color : $black!default;
+$main-nav-megamenu-text-hover-color : $theme-color-secondary!default;
+$main-nav-megamenu-border-bottom : 1px solid #eeeeee;
+$main-nav-megamenu-title-color : $gray-900!default ;
+
+$tab-style-1-bg-color : #d6b0ff !default;
+$tab-style-1-color : $white!default;
+$tab-style-1-active-bg-color : "gradient-adonis"!default;
+$tab-style-1-active-color : $white!default;
+$tab-style-1-border-color : $gray-100!default;
+
+$primary-menu-offcanvas-bg: rgba(255,255,255,0.9)!default;
+
+$header-dropdown-item-color : $black!default;
+$header-dropdown-item-bg : $white!default;
+
+$header-dropdown-item-hover-color : $theme-color-secondary!default;
+$header-dropdown-item-hover-bg : transparent;
+
+$header-dropdown-item-active-color : $white!default;;
+$header-dropdown-item-active-bg : "gradient-adonis";
+
+// body dropdowns
+$dropdown-item-title-color : $gray-800!default;
+$dropdown-item-color : $black!default;
+$dropdown-item-bg : $white!default;;
+
+$dropdown-item-hover-color : $theme-color-primary!default;
+$dropdown-item-hover-bg : transparent;
+
+$dropdown-item-active-color : $white!default;;
+$dropdown-item-active-bg : "gradient-adonis";
+
+// settings & notification dropdown
+$notification-toggle-color: #252525 ;
+$notification-toggle-active-color: $theme-color-primary!default ;
+
+// footer
+$footer-a-color: $black!default;
+$footer-a-hover-color: $theme-color-primary!default;
+
+/*Player */
+$player-headings-color: $black!default;
+$player-a-color: $black!default;
+$player-a-inactive-color: #a1a1a1;
+$player-a-hover-color: $theme-color-primary!default;
+$adonis-player-horizontal-bg : #f4f9fc;
+$player-seekbar-bg: #dddddd;
+
+$player-playlist-top-bg: #fffeec!default;
+$player-playlist-bg: $white!default;
+$player-playlist-color: $gray-600!default ;
+$player-playlist-link-color: $black!default ;
+$player-playlist-link-hover-color : $theme-color-primary!default;
+$player-playlist-title-color: $black!default;
+
+$player-fixed-bottom-height: 125px!default;;
+$player-fixed-bottom-shadow: -5px 0px 5px 1px rgba(0,0,0,0.1)!default;
+$player-fixed-top-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1)!default;
+
+/* Sidebar & side menu */
+$sidebar-a-color: $black!default;
+$sidebar-a-hover-color: $theme-color-primary!default;
+$side-menu-color: $third-active-color!default;
+$side-menu-color_hover: $theme-color-primary!default;
+
+$tag-cloud-color: $black!default ;
+$tag-cloud-bg: #ebf4f5 ;
+$tag-cloud-hover-color: #fff ;
+$tag-cloud-color-hover-bg: "gradient-adonis";
+
+/* Music image box */
+$music-box-title-color: $black!default;
+$music-box-sub-title-color: $gray-600!default;
+$music-box-a-hover-color: $theme-color-primary!default;
+$genres-color: $black!default;
+
+$music-box-a-color-dark-theme: #fff;
+$music-box-a-hover-color-dark-theme: $theme-color-primary!default;
+
+/* Box shadow */
+$small-box-shadow:4px 4px 15px 0 rgba(168,179,211,0.8);
+
+/* Form */
+$input-color: #7d7d7d ;
+$input-bg: #f1f3f9;
+$input-border-color: transparent;
+$input-border-color-focus: $theme-color-primary!default;
+
+/* Buttons */
+$btn-primary-color : #222222;
+$btn-secondary-color : #a1a1a1;
+$btn-secondary-border-color : #e1e1e1;
+
+/* search */
+$search-up-bg : $white!default;;
+$search-up-input-color : $gray-800!default;;
+$search-down-bg : $gray-200!default;;
+$search-down-menu-color : $gray-800!default;;
+$search-down-menu-hover-color : $theme-color-primary!default;;
+
+/* button colors */
+$primary-btn-bg:            "gradient-adonis";
+$primary-btn-bg-hover:       "gradient-adonis-alt";
+$primary-btn-color:         $white!default;;
+$primary-btn-color-hover:   $white!default;;
+
+$secondary-btn-bg:          #e1e1e1;
+$secondary-btn-bg-hover:    "gradient-adonis";
+$secondary-btn-color:       #555555;
+$secondary-btn-color-hover: $white!default;;
+$secondary-btn-border-color:       transparent;
+$secondary-btn-border-color-hover: transparent;
+
+$btn-outline-color : $black!default;;
+$btn-outline-hover-color: $white!default;;
+$btn-outline-border-color: #e1e1e1;
+$btn-outline-hover-border-color: $theme-color-primary!default;
+$btn-outline-bg: transparent;
+$btn-outline-bg-hover: "gradient-adonis";
+
+$btn-transparent-color : #a1a1a1;
+$btn-transparent-hover-color: $white!default;;
+$btn-transparent-bg: transparent;
+$btn-transparent-bg-hover: "gradient-adonis";
+
+
+/*** Store ***/
+/*single*/
+$product-single-tab-menu-color: #a1a1a1;
+$product-single-tab-menu-active-border-color: $theme-color-primary!default;
+$product-single-tab-menu-active-color: #252525;
+$album-link-color: #000000;
+$album-active-color: $theme-color-primary!default;
+
+$progress-bar-color: #e1e1e1 ;
+$progress-color: $theme-color-primary!default;
+
+/* Table */
+$table-border-color: #ebebeb;
+
+// Pagination
+$enable-hover-media-query:  true ;
+$pagination-color:                  $link-color!default;
+$pagination-bg:                     $white!default;
+$pagination-border-color:           $gray-300!default;
+
+$pagination-hover-color:            $link-hover-color!default;
+$pagination-hover-bg:               $gray-200!default;
+$pagination-hover-border-color:     $gray-300!default;
+
+$pagination-active-color:           $white!default;
+$pagination-active-bg:              $theme-color-primary!default;
+$pagination-active-border-color:    $theme-color-primary!default;
+
+/* Owl carousel */
+$owl-color-base:			#000!default;
+$owl-color-white:			#666!default;
+$owl-color-gray:			transparent!default;
+
+//nav
+$owl-nav-color: 			$owl-color-white!default;
+$owl-nav-color-hover:		$white!default;;
+$owl-nav-background: 		$owl-color-gray!default;
+$owl-nav-background-hover:	$owl-color-base!default;
+
+//dots
+$owl-dot-background:		#ddd!default;
+$owl-dot-background-active:	$owl-color-base!default;

@@ -1,0 +1,33 @@
+.site-footer{
+  @include link_color($footer-a-color,$footer-a-hover-color);
+}
+.social-icons{
+  ul{
+    display: inline-flex;
+    text-decoration:none;
+    margin-bottom: 0;
+  }
+  a{
+    padding: 10px;
+  }
+  li:first-child a{
+    padding-left: 0;
+  }
+}
+.site-footer{
+  .widget{
+    margin-bottom: 30px;
+    .widget-title{
+      padding: 0;
+      padding-bottom: $footer-widget-title-padding-bottom;
+    }
+    .vertical-list{
+      li{
+        padding: 0 0 8px 0;
+      }
+    }
+  }
+  .copyright{
+    padding: 10px 0;
+  }
+}

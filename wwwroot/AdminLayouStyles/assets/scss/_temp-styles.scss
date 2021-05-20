@@ -1,0 +1,28 @@
+.dropdown-mega-menu{
+  .bg-col{
+    background: linear-gradient(to left, rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%), url('../images/new-releases/new-releases-2.jpg') no-repeat
+  }
+}
+.artist-bg-1{
+  background-image: url('../images/single/single-3.jpg');
+}
+.artist-bg-2{
+  background-image: url('../images/single/single-1.jpg');
+}
+.listener-banner-1{
+  background-image: url('../images/banner-1.jpg');
+  top:-200px;
+}
+.sidebar-bg{
+  background-size: cover  !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  img{
+    min-width: 100%;
+    min-height: 100%;
+  }
+}

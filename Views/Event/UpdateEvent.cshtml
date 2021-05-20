@@ -1,0 +1,158 @@
+﻿@model RFPWebApplication.DTOs.EventDTO
+
+@{
+    ViewData["Title"] = "AddEvent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-11 ml-5">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Update Event</h4>
+            </div>
+
+            @if (Model != null)
+            {
+
+
+                @if (Model.OutputHandler == null)
+                {
+
+
+                }
+                else
+                {
+                    @if (Model.OutputHandler.IsErrorOccured)
+                    {
+                        <p class="errorMessage p-2">@Model.OutputHandler.Message</p>
+                    }
+                }}
+            <div class="card-body">
+                <form asp-action="UpdateEvent" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="@Model.EventId" hidden class="form-control" />
+                        <input asp-for="@Model.ImageUrl" hidden class="form-control" />
+                        <input asp-for="@Model.OldImageUrl" hidden class="form-control" />
+
+                        <label asp-for="@Model..MinistryArmId" class="control-label"></label>
+                        <select asp-for="@Model.MinistryArmId" class="form-control form-control-sm" required
+                                asp-items="@(new SelectList(Model.MinistryArms, "MinistryArmId", "MinistryArmName") )"></select>
+                        <span asp-validation-for="@Model.MinistryArmId" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.EventTitle" class="control-label"></label>
+                        <input asp-for="@Model.EventTitle" class="form-control" />
+
+                        <span asp-validation-for="@Model.EventTitle" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.DateOfEvent" class="control-label"></label>
+                        <input asp-for="@Model.DateOfEvent" class="form-control" />
+                        <span asp-validation-for="@Model.DateOfEvent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.EventEndDate" class="control-label"></label>
+                        <input asp-for="@Model.EventEndDate" class="form-control" />
+                        <span asp-validation-for="@Model.EventEndDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Heading" class="control-label"></label>
+                        <input asp-for="@Model.Heading" class="form-control" />
+                        <span asp-validation-for="@Model.Heading" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Article" class="control-label">Article Full Description</label>
+                        @Html.TextAreaFor(model => model.Article, new { @id = "FullDescription", @class = "form-control", @rows = "40" })
+
+                        <span asp-validation-for="@Model.Article" class="text-danger"></span>
+                    </div>
+                    <div class="form-group p-2">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="@Model.IsPublished" />Is Published?
+                        </label>
+                    </div>
+
+
+                    <div class="form-group p-2">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="@Model.IsTimeActive" />  Activate timer
+                        </label>
+                    </div>
+                    <div class="form-group p-2">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="@Model.IsAnEvent" />  Is this an event?
+                        </label>
+                        <p> if it's a news post leave the checkbox unchecked</p>
+                    </div>
+                    <div class="form-group p-2">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="@Model.IsTimeActive" />  Mark as Featured
+                        </label>
+                    </div>
+                    <div class="form-group p-2">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" onclick="myFunction()" id="myCheck" /> @Html.DisplayNameFor(model => model.IsOnEventBrite)
+
+                        </label>
+                    </div>
+                    <div class="form-group" id="text" hidden>
+                        <label asp-for="@Model.EventBriteLink" class="control-label"></label>
+                        <input asp-for="@Model.EventBriteLink" id="txtLink" class="form-control" />
+                        <span asp-validation-for="@Model.EventBriteLink" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="file">Artwork:</label>
+                            <input type="file" name="artwork" id="artwork" accept="image/*" />
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        <div class="">
+                            <a class="btn btn-raised btn-success btn-sm" asp-action="ManageEvents" asp-controller="Event">Back to List</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>
+
+<div>
+    <br />
+
+</div>
+
+@*<label for="myCheck">Checkbox:</label>
+    <input type="checkbox" id="myCheck" onclick="myFunction()">
+
+    <p id="text" style="display:none">Checkbox is CHECKED!</p>*@
+
+<script>
+    function myFunction() {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true)
+        {
+            text.hidden = false;
+            document.getElementById("txtLink").required = true;
+            text.style.display = "block";
+        }
+        else
+        {
+
+            text.style.display = "none";
+        }
+    }
+</script>

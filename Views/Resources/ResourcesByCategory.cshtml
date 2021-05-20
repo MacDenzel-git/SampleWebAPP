@@ -1,0 +1,76 @@
+﻿@model projectWebApplication.ViewModels.ResourceVM
+@{
+    ViewData["Title"] = $"About {Model.PageHeader}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+ 
+
+<!-- Blog grid-->
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-30 row-xl-60 row-xxl-100">
+            <div class="col-md-10 col-xl-10">
+                <div class="row row-30 row-xl-60 row-xxl-100">
+             
+                        @if (Model.Resources != null)
+                        {
+
+                            @foreach (var item in Model.Resources)
+                            {
+                                <div class="col-md-4">
+                                    <!-- Post-->
+                                    <div class="post post-shadow">
+                                        <a class="post-media" asp-action="SermonDetails" asp-route-sermonId="@item.ResourceId">
+                                            <img src="data:image;base64,@System.Convert.ToBase64String(item.Artwork)" alt="" width="370" height="257" />
+                                            <div class="post-hover-btn">View</div>
+                                        </a>
+                                        <div class="post-content">
+                                            <div class="post-tags group-5 text-small"><a class="post-tag"asp-action="PastorAubrey" asp-controller="Team">Pastor Aubrey Sermons</a></div>
+                                            <h4 class="post-title text-divider"style="font-size: 12px;"><a asp-action="SermonDetails" asp-route-sermonId="@item.ResourceId">@item.ResourceName</a></h4>
+                                       
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <p>There are currently no resources for this category, choose another category</p>
+                        }
+
+                   
+                </div>
+                </div> 
+            <div class="col-md-2 col-xl-2">
+                <h3 class="text-primary">Categories</h3>
+                <ul class="list list-divided list-divided-sm big">
+                    @foreach (var item in Model.ResourceCategories)
+                    {
+                        <li class="list-item"><a class="link link-arrow" asp-action="ResourcesByCategory" asp-route-name="@item.CategoryName" asp-route-id="@item.ResourceCategoryId">@item.CategoryName</a></li>
+                    }
+
+                </ul> 
+            </div>
+        </div>
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link page-link-prev mdi-chevron-left novi-icon" href="#"></a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link page-link-next mdi-chevron-right novi-icon" href="#"></a>
+            </li>
+        </ul>
+    </div>
+</section>
+

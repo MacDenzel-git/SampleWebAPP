@@ -1,0 +1,106 @@
+﻿@model projectWebApplication.DTOs.ResourceDTO
+
+@{
+    ViewData["Title"] = "Add Resource";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-11 ml-5">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Add Resource</h4>
+            </div>
+            @if (Model.OutputHandler != null)
+            {
+
+                @if (Model.OutputHandler.IsErrorOccured)
+                {
+                    <p style="color:red;">@Model.OutputHandler.Message</p>
+                }
+            }
+            <div class="card-body">
+                <form asp-action="AddResource" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <span asp-validation-for="ResourceCategoryId" class="text-danger"></span>
+                    <label asp-for="ResourceTypeId" class="control-label">Resource Type</label>
+                    <select asp-for="ResourceTypeId" class="form-control form-control-sm" required
+                            asp-items="@(new SelectList(Model.ResourceTypes, "ResourceTypeId", "ResourceTypeName") )"></select>
+
+                    <span asp-validation-for="ResourceTypeId" class="text-danger"></span>
+
+                    <label asp-for="ResourceCategoryId" class="control-label">Resource Category</label>
+                    <select asp-for="ResourceCategoryId" class="form-control form-control-sm" required
+                            asp-items="@(new SelectList(Model.ResourceCategories, "ResourceCategoryId", "CategoryName") )"></select>
+                    <div class="form-group">
+                        <label asp-for="ResourceName" class="control-label">Resource Name</label>
+                        <input asp-for="ResourceName" class="form-control" />
+                        <span asp-validation-for="ResourceName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Preacher" class="control-label"></label>
+                        <input asp-for="Preacher" class="form-control" />
+                        <span asp-validation-for="Preacher" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubHeader" class="control-label"></label>
+                        <input asp-for="SubHeader" class="form-control" />
+                        <span asp-validation-for="SubHeader" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubDescription" class="control-label"></label>
+                        <input asp-for="SubDescription" class="form-control" />
+                        <span asp-validation-for="SubDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group p-3">
+                        <label class="form-check-label">
+                            Publish <input type="checkbox" asp-for="IsPublished" />
+                        </label>
+                    </div>
+                    <div class="form-group p-3">
+                        <label class="form-check-label">
+                            Feature on Home page<input type="checkbox" asp-for="IsFeatured" />
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FooterHeader" class="control-label"></label>
+                        <input asp-for="FooterHeader" class="form-control" />
+                        <span asp-validation-for="FooterHeader" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FooterDescription" class="control-label"></label>
+                        <input asp-for="FooterDescription" class="form-control" />
+                        <span asp-validation-for="FooterDescription" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="file">Artwork:</label>
+                            <input type="file" name="artwork" id="artwork" accept="image/*" required />
+                        </div>
+                        <div class="col-lg-6">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+</div>
+
+<div>
+    <br />
+
+</div>

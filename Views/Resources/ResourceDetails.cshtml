@@ -1,0 +1,89 @@
+﻿@model projectWebApplication.ViewModels.ResourceVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="page">
+  
+    <!-- Overview Practice-->
+    <section class="section-md bg-transparent">
+        <div class="container">
+            <div class="row row-30 row-xl-55 row-xxl-100 justify-content-between">
+                <div class="col-md-9 text-center">
+                    
+                    <h3 class="h3-big">@Model.Resource.ResourceName  </h3>
+                    <p class="text-left">@Model.Resource.Description</p>
+                   
+                    <div class="row row-25 row-offset-md">
+                        <div class="col-sm-7">
+                            <img src="data:image;base64,@System.Convert.ToBase64String(Model.Resource.Artwork)" alt="" width="350" style="height:335px;" />
+                        </div>
+                        <div class="col-sm-5">
+                            <h3 class="text-left h3-big">@Model.Resource.SubHeader</h3>
+                            <p class="text-left">@Model.Resource.SubDescription</p>
+
+                        </div>
+
+
+                    </div>
+                    @*<h3 class="h3-big">@Model.Resource.FooterHeader</h3>
+                    <p>@Model.Resource.FooterDescription</p>*@
+                </div>
+            
+                <div class="col-md-3 col-xl-3">
+                    <h3 class="text-primary">Sermons</h3>
+                    <ul class="list list-divided list-divided-sm big">
+                        @foreach (var item in Model.ResourceCategories)
+                        {
+                            <li class="list-item"><a class="link link-arrow"  asp-action="SermonsByCategory" asp-route-name="@item.CategoryName" asp-route-id="@item.ResourceCategoryId">@item.CategoryName</a></li>
+                        }
+                        
+                    </ul>@*<a class="btn btn-block" href="#">Get in Touch</a>*@
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Practice-->
+    
+    <!-- Consultation form-->
+    <section class="section-md bg-100 text-center" id="consultation-form">
+        <div class="container">
+            <h2 data-animate='{"class":"fadeInUpBig"}'>Get in touch</h2>
+            <div class="link-container" data-animate='{"class":"fadeInUpBig"}'><a class="link link-large" href="tel:#">+265 999 813 033</a></div>
+            <form class="rd-mailform rd-form" data-form-output="form-consultation" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php" data-animate='{"class":"fadeInUpBig"}'>
+                <div class="row row-25 row-gutters-24">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" placeholder="Your Name*" Required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="phone" placeholder="Phone*" Required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="email" placeholder="E-mail*" Required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div class="form-output snackbar snackbar-primary" id="form-consultation"></div>
+        </div>
+    </section>
+    <!-- Footer contact-->
+
+
+    </div>

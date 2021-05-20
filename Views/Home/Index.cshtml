@@ -1,0 +1,381 @@
+﻿@model projectWebApplication.ViewModels.HomePageVM
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@*<link rel="stylesheet" type="text/css" href="~/TimerFiles/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/TimerFiles/css/main.css">*@
+<link rel="stylesheet" type="text/css" href="~/css/timer.css">
+<style>
+    @@media (min-width: 576px) {
+        .span { font-size: 1.5rem ;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+    }
+    @@media (min-width: 992px){
+        .span {
+            font-size: 4.5rem !important ;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+           }
+    @@media (min-width: 480px){
+        .span {
+            font-size: 1.5rem ;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+    }
+ 
+</style>
+<!-- Cases-->
+<!-- Swiper slider render section-->
+@section swiper{
+    <div class="swiper-container swiper-numbered" data-swiper>
+        <!-- Additional required wrapper-->
+        <div class="swiper-wrapper">
+            <!-- Slides-->
+            <div class="swiper-slide" style="background-image: url( images/project/crossover.jpg)">
+                <div class="intro-line-container">
+                    <div class="container">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url( images/project/WE.jpg )">
+                <div class="intro-line-container">
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url( images/project/2.jpg )">
+
+            </div>
+        </div>
+        <!-- Pagination-->
+        <div class="swiper-pagination"></div>
+    </div>
+}
+
+
+@if (@Model.HomePageDTO.TimerActivatedEvent != null)
+{
+    <!-- Counter-->
+    <section class="mt-5 mb-5 bg-transparent section-creative-top">
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm-4 mb-4 col-lg-4" data-animate='{"class":"fadeInUpBig"}'>
+                    <img src="/@Model.HomePageDTO.TimerActivatedEvent.ImageUrl"
+                         alt="" width="500" style="height: 214px !important;" />
+                </div>
+                <div class="col-sm-8 mb-4 col-xs-12 col- col-lg-8" data-animate='{"class":"fadeInUpBig"}' style="        background-color: #5f5858;">
+
+                    <div class="thumbnail thumbnail-light">
+                        <h5 class="mt-2" style="color:white;">@Model.HomePageDTO.TimerActivatedEvent.Heading</h5>
+                        <h4 class="thumbnail-title btn btn-sm btn-danger"><a asp-controller="NewsAndEvents" asp-action="EventDetails" asp-route-eventId="@Model.HomePageDTO.TimerActivatedEvent.EventId">Read More</a></h4>
+                        @if (@Model.HomePageDTO.TimerActivatedEvent.IsOnEventBrite)
+                        {
+                            <h4 class="thumbnail-title btn btn-sm btn-danger"><a href="@Model.HomePageDTO.TimerActivatedEvent.EventBriteLink">Register</a></h4>
+                        }
+                        <div class="thumbnail-divider"></div>
+                    </div>
+
+                    @if (Model.HomePageDTO.TimerActivatedEvent.DateOfEvent < DateTime.UtcNow.AddHours(2) &&
+                        Model.HomePageDTO.TimerActivatedEvent.EventEndDate > DateTime.UtcNow.AddHours(2))
+                    {
+                        <div class="row mt-0">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-4 text-center">
+                                        <h1 style="color: white;">HAPPENING NOW!!!</h1>
+                                        <p style="color: white;" class="pb-1">Click <a class="btn btn-sm p-1" href="#mixlrSection">here</a> to Stream Live, or head to contact us page for our social media platforms </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    { <div class="row mt-0">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-sm-4 col-lg-3 col-xs-4 timerheader"><span class="span" id="days"></span>days</div>
+                                    <div class="col-sm-4 col-lg-3 col-xs-4 timerheader"><span class="span" id="hours"></span>Hours</div>
+                                    <div class="col-sm-4 col-lg-3 col-xs-4 timerheader"><span class="span" id="minutes"></span>Minutes</div>
+                                    <div class="col-sm-4 col-lg-3 col-xs-4 timerheader"><span class="span" id="seconds"></span>Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+}
+<!-- About Church-->
+<section class="section-double-2 pt-5">
+    <section class="section-double-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 bg-image"   data-animate='{"class":"fadeInUpBig"}'>
+                    <img src="~/images/project/pillars.jpg" />
+                </div>
+                <div class="col-lg-6 layout-content bg-100" data-animate='{"class":"fadeInUpBig","delay":".2s"}'>
+                    <h3 class="font-weight-bold">About Raised for a Purpose Ministries(project)</h3>
+                    <p>
+                        project Ministries is an Inter-denominational Ministry that was established in 2007 in Blantyre, Malawi,
+                        with a broad mission of ministering to the spirit, soul and body of man.
+                    </p>
+                    <p>
+                        Through the Word of God and the manifest power of the Holy Spirit, 
+                        the Ministry equips people not to only end at receiving Christ but also going further to realize and execute their callings in Christ. 
+                        This is well summarized in what has become the most popular phrase in project services “We are not only raised but we are raised for a purpose”.
+                     
+                    </p>
+                    <p>
+                        project Ministries was founded by Pastor Aubrey Mwasinga when he was still in college.
+                        God bearing it witness through diverse miracles and gifts of the Holy Ghost,
+                        the Ministry has since grown from a campus ministry to impact many lives across the nation of Malawi and the globe.
+                        Currently, project Ministries has branches in every district in Malawi and is still planting branches in many countries across the world.
+                        <a class="btn btn-sm btn-outline text-light" asp-action="AboutUs">Learn More</a>
+                    </p>
+                    <div class="group-20 mt-5" data-lightgallery>
+                        <ul class="social social-bordered footer-social">
+                            <li><a style="background-color: red;/*! font-size: 44px; */color: white;" class="social-icon icon icon-md mdi-youtube-play" href="https://www.youtube.com/channel/UC1NC0ZJbmWjE4rkOqMzw4aQ"></a></li>
+                            <li><a style="background-color: #1da1f2;color: white;" class="social-icon icon icon-md mdi-twitter" href="https://twitter.com/project"></a></li>
+                            <li><a style="background-color: #0268e2;color: white;" class="social-icon icon icon-md mdi-facebook" href="https://www.facebook.com/projectNews"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!-- Blog carousel-->
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-5 align-items-center">
+            <div class="col-md-5" data-animate='{"class":"fadeIn"}'>
+                <h2>Ministry Arms</h2>
+            </div>
+            <div class="col-md-7" data-animate='{"class":"fadeIn","delay":".2s"}'>
+                <p class="big">These are some of the core activities in project ministries take a look and get acquinted</p>
+            </div>
+        </div>
+        <!-- Swiper slider-->
+        <div class="swiper-carousel">
+            <div class="swiper-container" data-swiper='{"breakpoints":{"576":{"slidesPerView":2,"spaceBetween":15},"768":{"slidesPerView":3,"spaceBetween":30}},"loop":false,"pagination":{"type":"custom"}}'>
+                <!-- Additional required wrapper-->
+                <div class="swiper-wrapper">
+                    <!-- Slides-->
+                    @foreach (var item in Model.HomePageDTO.MinistryArms.Where(x => x.IsPublished && x.IsFeaturedOnHomePage))
+                    {
+                        <div class="swiper-slide">
+                            <!-- Post-->
+                            <div class="post post-shadow">
+                                <a class="post-media"
+                                   asp-controller="MinistryArms"
+                                   asp-action="MinistryArmDetails"
+                                   asp-route-ministryArmId="@item.MinistryArmId">
+                                    <img src="/@item.Artwork" width="370" height="257" />
+                                    @*<img src="data:image;base64,@System.Convert.ToBase64String(item.ImgBytes)" width="370" height="257" />*@
+                                    <div class="post-hover-btn">View</div>
+                                </a>
+                                <div class="post-content">
+                                    <div class="post-tags group-5 text-small">
+                                        <a class="post-tag"
+                                           asp-route-ministryArmId="@item.MinistryArmId"
+                                           asp-controller="MinistryArms"
+                                           asp-action="MinistryArmDetails">@item.MinistryArmName</a>
+                                    </div><br />
+
+                                    @if (@item.MinistryFullDescription.Length >= 120)
+                                    {
+
+                                        <a class=" text-dark"
+                                           asp-controller="MinistryArms"
+                                           asp-action="MinistryArmDetails"
+                                           asp-route-ministryArmId="@item.MinistryArmId">@Html.Raw(@item.MinistryFullDescription.Substring(0, 120))...</a>
+                                        <p class="text-divider"></p>
+                                    }
+                                    else
+                                    {
+
+                                        <a class=" text-dark" asp-controller="MinistryArms"
+                                           asp-action="MinistryArmDetails"
+                                           asp-route-ministryArmId="@item.MinistryArmId">@Html.Raw(@item.MinistryFullDescription)...</a>
+                                        <p class="text-divider"></p>
+                                    }
+
+                                    @*<div class="post-date">November 12, 2020</div>*@
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="swiper-controls">
+                    <!-- Pagination-->
+                    <div class="swiper-pagination"></div>
+                    <!-- Scrollbar-->
+                    <div class="swiper-progress">
+                        <div class="swiper-progress-bar"></div>
+                    </div>
+                    <!-- Navigation-->
+                    <div class="swiper-buttons">
+                        <div class="swiper-button-prev mdi-chevron-left"></div>
+                        <div class="swiper-button-next mdi-chevron-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Pastor-->
+<section class="pt-5 bg-100">
+    <div class="container">
+        <div class="row row-40 justify-content-between ">
+            <div class="col-md-5" data-animate='{"class":"fadeInLeftBig"}'>
+                <div class="text-block-1">
+                    <h4>About Pastor Aubrey</h4>
+                    <p class="big">
+                        Pastor Aubrey miraculously received Christ in 2006. Barely two months after his salvation, 
+                        God inspired him to write a book titled “Realising and Accomplishing Your Purpose”.
+                        This was the step in learning to trust God where circumstances seemed impossible and learning to hear the voice of the Holy Spirit.
+                        A month into writing the book, God instructed him to start a ministry. Just like it begins with many ministers,
+                        he didn’t believe what he was hearing from God let alone being sure that it was God who was speaking. 
+                        He thought he could not start a ministry, 
+                        at least not at this time when he was only three months in Christ and knew so little about God.
+
+                    </p>
+
+                    <a class="btn btn-outline text-light" asp-controller="Team" asp-action="PastorAubrey">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-7 col-xl-6" data-animate='{"class":"fadeInRightBig"}'>
+                <div class="layout layout-3">
+                    <div class="layout-media bg-image" style="        background-image: url( images/person/peronOne.jpg );min-height: 447px;"></div>
+
+                    <div class="layout-content bg-900 context-dark">
+                        <div class="owl-carousel owl-quote-3" data-owl="{&quot;dots&quot;:true}" data-items="1">
+                            <!-- Quote icon line-->
+                            @foreach (var item in Model.HomePageDTO.Qoutes)
+                            {
+                                <div class="quote quote-line">
+                                    <q class="quote-text h4">@item.QouteText</q>
+                                    <div class="quote-person">
+                                        <img src="/@item.QouteImg" alt="Artwork" width="80" height="80" />
+                                        <cite class="quote-cite"><span class="quote-author">Pastor Aubrey Qoutes, </span><span class="quote-position">President - project Ministries</span></cite>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                    <a class="btn btn-outline text-light" asp-controller="Qoutes" asp-action="Index">View other Qoutes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- New sermons-->
+
+<section class="section-md bg-transparent">
+    <div class="container">
+        <div class="row row-5 align-items-center">
+            <div class="col-md-5" data-animate='{"class":"fadeIn"}'>
+                <h2>Featured Resources</h2>
+            </div>
+            <div class="col-md-7" data-animate='{"class":"fadeIn","delay":".2s"}'>
+                <p class="big">Explore all sermons by <a class="post-tag" asp-action="PastorAubrey" asp-controller="Team">Pastor Aubrey</a> available to you for purchase </p>
+            </div>
+        </div>
+        <div class="row row-30 row-xl-60 row-xxl-100">
+            <div class="col-md-10 col-xl-10">
+                <div class="row row-30 row-xl-60 row-xxl-100">
+                    @foreach (var item in Model.HomePageDTO.Resources.Where(x => x.IsFeatured.Equals(true)))//add equal to "Sermon"
+                    {
+                        <div class="col-md-4">
+                            <!-- Post-->
+                            <div class="post post-shadow">
+                                <a class="post-media" asp-controller="Resources" asp-action="ResourceDetails" asp-route-resourceId="@item.ResourceId">
+                                    @*<img src="/@item.ImageUrl" alt="" width="370" height="257" />*@
+                                    <img src="/@item.ImageUrl" width="80" height="80" />
+                                    <div class="post-hover-btn">View</div>
+                                </a>
+                                <div class="post-content">
+                                    @*<div class="post-tags group-5 text-small"><a class="post-tag" asp-action="PastorAubrey" asp-controller="Team">Pastor Aubrey Sermons</a></div>*@
+                                    <h4 class="post-title text-divider" style="font-size: 12px;"><a asp-controller="Resources" asp-action="ResourceDetails" asp-route-ResourceId="@item.ResourceId">@item.ResourceName</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class=" bg-100">
+    <div class="container">
+
+        <div class="row row-30 row-xl-55 justify-content-between">
+
+            <div id="mixlrSection" class="col-12">
+                <!--mixrl Feed Goes here-->
+                <iframe src="https://mixlr.com/users/4060391/embed?color=702625" autoplay width="100%" height="180px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe><small><a href="https://mixlr.com/raised-for-a-purpose" style="color:#1a1a1a;text-align:left; font-family:Helvetica, sans-serif; font-size:11px;">Raised for A Purpose is on Mixlr</a></small>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+@if (@Model.HomePageDTO.TimerActivatedEvent != null)
+
+{
+
+
+    <script>
+    (function () {
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+        @*@String.Format("{0:f}", Model.HomePageDTO.TimerActivatedEvent.DateOfEvent) ,*@
+        //"Sep 30, 2021 00:00:00",
+        let birthday = "@Model.HomePageDTO.TimerActivatedEvent.DateOfEvent.ToString("MMM dd, yyy HH:mm:ss")",
+            countDown = new Date(birthday).getTime(),
+            x = setInterval(function () {
+
+            let now = new Date().getTime(),
+                distance = countDown - now;
+
+            document.getElementById("days").innerText = Math.floor(distance / (day)),
+                    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+            //do something later when date is reached
+            if (distance < 0) {
+                    let headline = document.getElementById("headline"),
+                        countdown = document.getElementById("countdown"),
+                        content = document.getElementById("content");
+
+                    headline.innerText = "It's my birthday!";
+                    countdown.style.display = "none";
+                    content.style.display = "block";
+
+                    clearInterval(x);
+                }
+                //seconds
+            }, 0)
+    }());
+    </script>
+}

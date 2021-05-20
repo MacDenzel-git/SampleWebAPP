@@ -1,0 +1,25 @@
+.scroll-y{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  position: relative;
+  .ps__rail-x{
+    display: none;
+  }
+}
+.scroll-x{
+  overflow: auto;
+  transition: .2s linear left;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.scroll-x-alt{
+  overflow: auto;
+  transition:.2s linear left;
+  overflow-y: hidden;
+  position: relative;
+}
+.ps__rail-y{
+  z-index: $scroll-zindex;
+}

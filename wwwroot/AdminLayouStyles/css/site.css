@@ -1,0 +1,242 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans';
+    
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Nunito Sans';
+}
+
+/*----- Circle formating ----*/
+.bg-circle {
+    position: absolute;
+    background-color: #25B430;
+    background-image: -webkit-linear-gradient(350deg, #25B430, #1BA94D);
+    background-image: -o-linear-gradient(350deg, #25B430, #1BA94D);
+    background-image: linear-gradient(100deg, #0C0C0C, #181B19);
+    top: -400px;
+    left: -350px;
+    border-radius: 100%;
+    height: 800px;
+    width: 800px;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+@media (max-width: 991px) {
+    .bg-circle {
+        height: 400px;
+        width: 400px;
+        top: -200px;
+        left: -200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .bg-circle {
+        display: none;
+    }
+}
+
+#DataTables_Table_0_filter {
+     margin-left: 266px;
+}
+
+#DataTables_Table_0_info {
+ 
+    margin-left: 394px;
+  
+    padding-left: 0px;
+}
+
+/* ----logo format---- */
+.logo {
+    display: block;
+    width: 120px;
+    height: 115px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+    .logo img {
+        width: 100%;
+    }
+
+.h4-title {
+    justify-content: center;
+    text-align: center;
+    color: rgb(26, 104, 33);
+    font-family: 'Nunito Sans';
+    font-weight: 600;
+    font-size: 26px;
+}
+
+.outer-div {
+    padding: 40px;
+    padding-top: 60px;
+}
+
+.login-powered {
+    border-top: 1px solid #dde6ec;
+}
+
+.btn {
+    font-family: 'Nunito Sans';
+}
+
+a:hover {
+    color: #004a43;
+    text-decoration: none;
+}
+
+.select-group-card {
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-bottom: 30px;
+    box-shadow: 4px 9px 6px rgba(5, 5, 5, 0.2);
+    background-color: #fff;
+    color: black;
+}
+
+.hover-expand-effect:hover:after {
+    width: 100%;
+}
+
+.hover-expand-effect:after {
+    background-color: rgba(22, 158, 2, 0.1);
+    content: ".";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    color: transparent;
+    -moz-transition: all 0.95s;
+    -o-transition: all 0.95s;
+    -webkit-transition: all 0.95s;
+    transition: all -4.05s;
+}
+
+.select-group-card hr {
+    border-width: 2px;
+    background-color: #67a763;
+}
+
+.p-l-0 {
+    padding-left: 0px;
+}
+
+.p-r-0 {
+    padding-right: 0px;
+}
+
+.gray-color {
+    color: #6f6c6c !important;
+}
+.dataTables_wrapper {
+    position: relative;
+}
+
+    .dataTables_wrapper select {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -ms-box-shadow: none;
+        box-shadow: none;
+    }
+
+        .dataTables_wrapper select:active, .dataTables_wrapper select:focus {
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            -ms-box-shadow: none;
+            box-shadow: none;
+        }
+
+    .dataTables_wrapper input[type="search"] {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -ms-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .dataTables_wrapper input[type="search"]:focus, .dataTables_wrapper input[type="search"]:active {
+            border-bottom: 2px solid #1f91f3;
+        }
+
+    .dataTables_wrapper .dt-buttons {
+        float: left;
+    }
+
+        .dataTables_wrapper .dt-buttons a.dt-button {
+            background-color: #607D8B;
+            color: #fff;
+            padding: 7px 12px;
+            margin-right: 5px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+            border: none;
+            font-size: 13px;
+            outline: none;
+        }
+
+            .dataTables_wrapper .dt-buttons a.dt-button:active {
+                opacity: 0.8;
+            }
+
+.errorMessage {
+    float: left !important;
+    color: red !important;
+    font-weight : bold !important;
+}
+
+.successMessage {
+    float: left !important;
+    color: green !important;
+    font-weight: bold !important;
+}
+

@@ -1,0 +1,67 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* general styling */
+/** {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    align-items: center;
+    background-color: #ffd54f;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    color: #333;
+    margin: 0 auto;
+    text-align: center;
+}*/
+/*
+h1 {
+    font-weight: normal;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+}
+*/
+ 
+.span {
+    /* display: block; */
+    font-size: 4.5rem;
+    color: white;
+    font-weight: bold;
+}
+.timerheader {
+    font-size: 21px;
+    color: black;
+    font-weight: bold;
+}
+.message {
+    font-size: 4rem;
+    display: none;
+    padding: 1rem;
+}
+
+.emoji {
+    padding: 0 .25rem;
+}
+ 

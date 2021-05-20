@@ -1,0 +1,261 @@
+.album-cover-bg{
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-position: center top;
+  -webkit-background-size: cover;
+  background-size: cover;
+  mask-image:-webkit-gradient(linear, left 70%, left 100%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  -webkit-mask-image:-webkit-gradient(linear, left 70%, left 100%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  &.blur-bottom{
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 20vh;
+    }
+  }
+}
+.album-spacer{
+  height: 40vmin;
+}
+
+@media (min-width: 768px) {
+  .flex-column-md-album-poster{
+    width: $album-poster-size;
+    flex: 0 0 $album-poster-size;
+    flex-grow: 0;
+    max-width: none;
+  }
+  .flex-column-md-album-content {
+    width: 40%;
+    flex: 2 0 auto;
+    max-width: none;
+  }
+}
+@media (min-width: 992px) {
+  .flex-column-lg-album-poster{
+    width: $album-poster-size;
+    flex: 0 0 $album-poster-size;
+    flex-grow: 0;
+    max-width: none;
+  }
+  .flex-column-lg-album-content {
+    width: 40%;
+    flex: 2 0 auto;
+    max-width: none;
+  }
+}
+@media (min-width: 1200px) {
+  .flex-column-xl-album-poster{
+    width: $album-poster-size;
+    flex: 0 0 $album-poster-size;
+    min-width: 250px;
+  }
+  .flex-column-xl-album-content {
+    width: 40%;
+    flex: 2 0 auto;
+    max-width: none;
+  }
+}
+
+.adonis-album-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  > li{
+    padding: 1.3rem 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+    align-items: center;
+    @include transition(all 0.3s ease);
+    > div{
+      min-height: 20px;
+    }
+    &:first-child{
+      padding-top: 0;
+    }
+    a{
+      color: $album-link-color;
+    }
+    .hover-bg{
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      @include transition(all 0.3s ease);
+    }
+    .hover-show{
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+    .hover-hide{
+      position: absolute;
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+    .item-number{
+      width: 4%;
+      min-width: 20px;
+      padding-left: 0;
+    }
+    .item-title{
+      width: 40%;
+      max-width: 40%;
+      min-width: 60px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .item-genre{
+      width: 30%;
+      max-width: 30%;
+      padding: 0 0.2rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-left: auto;
+      position: relative;
+      overflow: hidden;
+      min-width: 20%;
+      span{
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    .item-duration{
+      width: 60px;
+      min-width: 40px;
+      margin-left: auto;
+    }
+    .item-tools{
+      width: 60px;
+      min-width: 50px;
+      text-align: center;
+      margin-left: auto;
+    }
+    .item-price{
+      width: 140px;
+      min-width: 140px;
+      margin-left: auto;
+      text-align: right;
+    }
+    .item-duration, .item-tools{
+      text-align: center;
+      position: relative;
+      margin-left: auto;
+      .hover-show,.hover-hide{
+        width: 100%;
+        text-align: center;
+        left: 0;
+      }
+    }
+    .hover-tools{
+      right: 1.5rem;
+      left: auto !important;
+      width: auto !important;
+      align-items: center;
+    }
+
+    &.item:hover{
+      a:not([class^="btn"]){
+        color: $album-active-color;
+      }
+      &.hover-bg-item{
+        color: #ffffff;
+      }
+      .hover-bg{
+        opacity: 1;
+      }
+      .hover-hide{
+        opacity: 0;
+        visibility: hidden;
+      }
+      .hover-show{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+@media (min-width: 992px){
+  .adonis-album-list {
+    > li.item {
+      &:hover{
+        .hover-lg-show{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .item-number{
+        padding-left: 1rem;
+        min-width: 50px;
+      }
+    }
+  }
+}
+@media (max-width: 767px){
+  .album-spacer{
+    height: 70vmin;
+  }
+  .adonis-album-list{
+    > li{
+      .item-genre{
+        display: none;
+      }
+      .item-duration{
+        display: none;
+      }
+    }
+  }
+}
+
+.customer-rating{
+  .rating{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    .star-number{
+      width: 3.5rem;
+      margin-right: 0.3rem;
+    }
+    .progress{
+      width: 50%;
+      flex: 0 0 50%;
+      max-width: 20rem;
+      flex-grow: 3;
+      height: $progress-bar-height;
+      background-color: $progress-bar-color;
+      .progress-bar{
+        background-color: $progress-color;
+      }
+    }
+    .star-percent{
+      width: 3.5rem;
+      text-align: center;
+    }
+  }
+}
+
+.customer-review{
+  img {
+    max-width: 35px;
+  }
+}
+.shop-attributes{
+  th{
+    width: 20%;
+    min-width: 10rem;
+  }
+}

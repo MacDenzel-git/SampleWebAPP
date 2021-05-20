@@ -1,0 +1,13 @@
+.adonis-news-articles{
+  .news-box{
+    position: relative;
+    .img-box{
+      img{
+        width: 100%;
+      }
+    }
+    .info-box{
+      padding: 0.5rem 0;
+    }
+  }
+}

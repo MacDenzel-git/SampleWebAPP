@@ -1,0 +1,328 @@
+﻿@model projectWebApplication.ViewModels.BaseViewModel
+
+
+@{
+
+    @*@Model.MinistryArms = await StaticDataHandler.GetMinistryArmsAsync(Model.BaseUrl);*@
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]  </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Template Monster Admin Template">
+    <meta property="og:description" content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+    <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+    <meta property="og:url" content="http://digipunk.netii.net">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    @*<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">*@
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
+    @*<link rel="stylesheet" href="~/components/base/base.css">*@
+    <link rel="stylesheet" href="@Url.Content("~/components/base/base.css")">
+
+    <style>
+        .rd-navbar-fullwidth .navbar-navigation-root-item {
+            display: flex;
+            align-items: center;
+            padding: 0 15px !important;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <section class="intro intro-line context-dark">
+            <!-- Intro slider-->
+
+            <header class="section rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar-line">
+                    <div class="navbar-container intro-line-row">
+                        <div class="intro-line-col">
+                            <div class="navbar-cell">
+                                <div class="navbar-panel">
+                                    <button class="navbar-switch linearicons-menu" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
+                                    <div class="navbar-logo">
+                                        <a class="navbar-logo-link" asp-controller="Home" asp-action="Index">
+                                            <img class="navbar-logo-default" src="~/images/logo.jpg" alt="project" width="148" height="52" /><img class="navbar-logo-inverse" src="~/images/project/logo1.png" alt="Calm" width="148" height="52" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-line-col intro-line-col-center">
+                            <div class="navbar-cell">
+                                <ul class="navbar-navigation rd-navbar-nav">
+                                    <li class="navbar-navigation-root-item navbar-navigation-item-hidden">
+                                        <a class="navbar-navigation-root-link" asp-action="Index" asp-controller="Home">Home</a>
+                                    </li>
+                                    <li class="navbar-navigation-root-item">
+                                        <a class="navbar-navigation-root-link" href="#">About</a>
+                                        <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
+                                            <li class="navbar-navigation-back">
+                                                <button class="navbar-navigation-back-btn">Back</button>
+                                            </li>
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                                            </li>
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Team" asp-action="PastorAubrey">Pastor Aubrey</a>
+                                            </li>
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" href="#">Branches</a>
+                                                @if (Model.Branches.Count() > 10)
+                                                {
+                                                    Model.ScrollBarHeight = "420px";
+                                                }
+                                                else
+                                                {
+                                                    Model.ScrollBarHeight = "auto";
+                                                }
+                                                <ul class="navbar-navigation-dropdown rd-navbar-dropdown" style="height:@Model.ScrollBarHeight;overflow-y:auto;">
+                                                    <li class="navbar-navigation-back">
+                                                        <button class="navbar-navigation-back-btn">Back</button>
+                                                    </li>
+                                                    @foreach (var item in Model.Branches.OrderBy(x => x.BranchName))
+                                                    {
+
+                                                    <li class="navbar-navigation-dropdown-item">
+                                                        <a class="navbar-navigation-dropdown-link" asp-controller="Home"
+                                                           asp-action="BranchDetails"
+                                                           asp-route-branchId="@item.BranchId">@item.BranchName</a>
+                                                    </li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" href="#">Directorates</a>
+                                                @if (Model.MinistryArms.Where(x => x.IsAddedToMenu == false).Count() > 10)
+                                                {
+                                                    Model.ScrollBarHeight = "420px";
+                                                }
+                                                else
+                                                {
+                                                    Model.ScrollBarHeight = "auto";
+                                                }
+                                                <ul class="navbar-navigation-dropdown rd-navbar-dropdown" style="height:420px;overflow-y:auto;">
+                                                    <li class="navbar-navigation-back">
+                                                        <button class="navbar-navigation-back-btn">Back</button>
+                                                    </li>
+                                                    @foreach (var item in Model.MinistryArms.Where(x => x.IsAddedToMenu == false && x.MinistryArmName != "N/A").OrderBy(x => x.MinistryArmName))
+                                                    {
+                                                    <li class="navbar-navigation-dropdown-item">
+                                                        <a class="navbar-navigation-dropdown-link"
+                                                           asp-controller="MinistryArms"
+                                                           asp-action="MinistryArmDetails"
+                                                           asp-route-ministryArmId="@item.MinistryArmId"
+                                                           style=" max-width: 272px;text-overflow: ellipsis;overflow: hidden; white-space: nowrap;">@item.MinistryArmName</a>
+                                                    </li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                            @*<li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Home" asp-action="StatementOfFaith">Statement Of Faith</a>
+                                            </li>*@
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Team" asp-action="TeamMembers">Team</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="navbar-navigation-root-item">
+                                        <a class="navbar-navigation-root-link" href="#">Resource Center</a>
+                                        <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
+                                            @*<li class="navbar-navigation-back">
+                                                <button class="navbar-navigation-back-btn">Back</button>
+                                            </li>*@
+                                            @foreach (var item in Model.ResourceTypes.OrderBy(x => x.ResourceTypeName))
+                                            {
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Resources" asp-route-resourceType="@item.ResourceTypeName" asp-action="Resources">@item.ResourceTypeName</a>
+                                            </li>
+                                            }
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link" asp-controller="Quotes" asp-action="Index">Quotes</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="navbar-navigation-root-item">
+                                        <a class="navbar-navigation-root-link" href="#">Ministry Arms</a>
+                                        <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
+                                            @*<li class="navbar-navigation-back">
+                                                <button class="navbar-navigation-back-btn">Back</button>
+                                            </li>*@
+
+                                            @foreach (var item in Model.MinistryArms.Where(x => x.IsAddedToMenu).OrderBy(x => x.MinistryArmName))
+                                        {
+                                            <li class="navbar-navigation-dropdown-item">
+                                                <a class="navbar-navigation-dropdown-link"
+                                                   asp-controller="MinistryArms"
+                                                   asp-action="MinistryArmDetails"
+                                                   asp-route-ministryArmId="@item.MinistryArmId">
+                                                    @item.MinistryArmAbbreviation
+                                                </a>
+                                            </li>
+                                        }
+
+                                        </ul>
+                                    </li>
+                                    <li class="navbar-navigation-root-item">
+                                        <a class="navbar-navigation-root-link" asp-controller="NewsAndEvents" asp-action="Index">News & Events</a>
+
+                                    </li>
+                                    <li class="navbar-navigation-root-item navbar-navigation-item-hidden">
+                                        <a class="navbar-navigation-root-link" asp-action="Index" asp-controller="Testimonies">Testimonies</a>
+                                    </li>
+                                    <li class="navbar-navigation-root-item navbar-navigation-item-hidden">
+                                        <a class="navbar-navigation-root-link" asp-controller="Home" asp-action="ContactUs">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="navbar-cell navbar-spacer"></div>
+                        </div>
+                        <div class="intro-line-col navbar-subpanel-contact">
+                            <div class="navbar-cell align-items-center navbar-subpanel-item-desktop">
+                                @*<span class="navbar-contact-text">Contacts</span>*@
+                                <button class="navbar-button navbar-contact-btn navbar-contact-btn-rounded linearicons-menu" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-contact-active","isolate":"[data-multi-switch]:not( .navbar-button )"}'></button>
+                            </div>
+                            <div class="navbar-contact">
+                                <ul class="list list-sm">
+                                    <li class="list-item">
+                                        <h4 class="text-uppercase text-primary">Raised For a Purpose</h4>
+                                    </li>
+                                    <li class="list-item"><a class="link link-inherit-primary" href="mailto:#">info@project.com</a></li>
+                                    <li class="list-item"><a class="link link-inherit-primary" href="mailto:#">Call: +265 999 813 033</a></li>
+                                    <li class="list-item"><span>Koinonia Convocational Arena(KCA), <br />Next to Robins Park,Behind water board</span></li>
+                                </ul>
+                                <ul class="list list-divided">
+                                    <li class="list-item">
+                                        <!-- Blurb link-->
+                                        <div class="blurb blurb-link">
+                                            <div class="blurb-icon linearicons-bookmark"></div>
+                                            <h4 class="blurb-title"><a asp-controller="Home" asp-action="ContactUs">Contact us</a></h4>
+                                        </div>
+                                    </li>
+                                    <!--<li class="list-item">-->
+                                    <!-- Blurb link-->
+                                    <!--<div class="blurb blurb-link">
+                                        <div class="blurb-icon linearicons-mic2"></div>
+                                        <h4 class="blurb-title"><a asp-controller="Events" asp-action="Index">Events</a></h4>
+                                    </div>
+                                </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="intro-line-table">
+                <div class="intro-line-row">
+                    <div class="intro-line-col"></div>
+                    <div class="intro-line-col intro-line-col-center"></div>
+                    <div class="intro-line-col"></div>
+                </div>
+                <div class="intro-line-row intro-line-content">
+                    <div class="intro-line-col"></div>
+                    <div class="intro-line-col intro-line-col-center"></div>
+                    <div class="intro-line-col"></div>
+                </div>
+                <div class="intro-line-row">
+                    <div class="intro-line-col"></div>
+                    <div class="intro-line-col intro-line-col-center intro-line-footer">
+                        <div class="container" data-animate='{"class":"fadeIn"}'>
+                            <div class="row row-25">
+                                <div class="col-lg-9 col-xl-7 text-center text-lg-left">
+                                    <!-- Blurb link-->
+                                    <div class="blurb blurb-link-2"
+                                         style="background-color: white;
+    border-radius: 10px;
+    padding: 7px;color:black">
+                                        @*<div class="blurb-icon text-white linearicons-compass2"></div>*@
+                                        <div class="blurb-content">
+                                            <h4 class="blurb-title" style="color:black;"><a asp-controller="Home" asp-action="ContactUs">KCA Dawn Auditorium, Next to Robins Park</a></h4>
+                                            <div class="blurb-subtitle">Sunday-Morning 07:50 - 10:30 PM.</div>
+                                            <div class="blurb-subtitle">Sunday-Afternoon 13:00 - 16:30 PM.</div>
+                                            <div class="blurb-subtitle">Midweek Service, thursday 17:30 - 19:30 PM </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xl-5 text-center text-lg-right">
+                                    <div class="group-15 group-lg-30"><a class="icon icon-md icon-link icon-link-gray mdi-facebook" href="#"></a><a class="icon icon-md icon-link icon-link-gray mdi-linkedin" href="#"></a><a class="icon icon-md icon-link icon-link-gray mdi-twitter" href="#"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="intro-line-col"></div>
+                </div>
+            </div>
+
+            @RenderSection("swiper", required: false)
+
+        </section>
+
+        @RenderBody()
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-376c05ea-b0b7-4cb9-a498-ee596ae0300a"></div>
+        <!-- Footer contact-->
+        <footer class="footer-contact context-dark bg-900 text-center">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-logo"><a class="logo-link" asp-controller="Home" asp-action="Index"><img src="images/project/logo.jpg" alt="" width="148" height="52" /></a></div>
+                </div>
+                <div class="footer-row">
+                    <ul class="footer-menu">
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Home" asp-action="AboutUs">About</a></li>
+                        <li><a asp-controller="NewsAndEvents" asp-action="Index">Events</a></li>
+                        <li><a asp-controller="Home" asp-action="ContactUs">Contact us</a></li>
+                    </ul>
+                </div>
+                @*<div class="footer-row">
+
+                    <ul class="social social-bordered footer-social">
+                        <li><a class="social-icon icon icon-md mdi-youtube-play" href="https://www.youtube.com/channel/UC1NC0ZJbmWjE4rkOqMzw4aQ"></a></li>
+                        <li><a class="social-icon icon icon-md mdi-twitter" href="https://twitter.com/project"></a></li>
+                        <li><a class="social-icon icon icon-md mdi-facebook" href="https://www.facebook.com/projectNews"></a></li>
+                    </ul>
+                </div>*@
+                <div class=" ">
+                    <div class="h6">Koinonia Convocational Arena - Dawn Auditorium, Next to Robins Park</div>
+                    <!-- Copyright-->
+                    <p class="rights"><span>&copy; 2020&nbsp;</span><span>project</span><span>. All rights reserved.&nbsp;</span><a class="link link-inherit rights-link" href="privacy-policy.html">Privacy Policy</a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- coded by barber-->
+
+    </div>
+    <!-- Preloader-->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+            <div class="preloader-dot"></div>
+        </div>
+    </div>
+  
+    <script src="@Url.Content("../components/base/core.min.js")"></script>
+    <script src="@Url.Content("../components/base/script.js")"></script>
+    @*<script src="~/components/base/core.min.js"></script>
+        <script src="~/components/base/script.js"></script>*@
+    @RenderSection("Scripts", required: false)
+    @*
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)*@
+
+</body>
+</html>
+ 
